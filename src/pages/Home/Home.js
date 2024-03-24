@@ -20,7 +20,35 @@ function Home() {
                             <Button primary>Explore</Button>
                         </div>
                     </div>
-                    <div className={cx('home-right')}></div>
+                    <div className={cx('home-right')}>
+                        <div className={cx('list-product')}>
+                            <img
+                                className={cx('list-product-img')}
+                                src="https://themewagon.github.io/furni/images/product-1.png"
+                                alt=""
+                            />
+                            <h3>Ghe xinh</h3>
+                            <h5>$50.00</h5>
+                        </div>
+                        <div className={cx('list-product')}>
+                            <img
+                                className={cx('list-product-img')}
+                                src="https://themewagon.github.io/furni/images/product-2.png"
+                                alt=""
+                            />
+                            <h3>Ghe xinh</h3>
+                            <h5>$50.00</h5>
+                        </div>
+                        <div className={cx('list-product')}>
+                            <img
+                                className={cx('list-product-img')}
+                                src="https://themewagon.github.io/furni/images/product-3.png"
+                                alt=""
+                            />
+                            <h3>Ghe xinh</h3>
+                            <h5>$50.00</h5>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

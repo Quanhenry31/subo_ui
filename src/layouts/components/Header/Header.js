@@ -69,7 +69,11 @@ function Header() {
                     </div>
                 </div>
                 <div className={cx('nav-right')}>
-                    <img src="https://themewagon.github.io/furni/images/couch.png" alt="error img" />
+                    <img
+                        className={cx('nav-right-img')}
+                        src="https://themewagon.github.io/furni/images/couch.png"
+                        alt="error img"
+                    />
                 </div>
             </div>
         </header>
