@@ -5,70 +5,73 @@ import styles from './Button.module.scss';
 const cx = classNames.bind(styles);
 
 function Button({
-  className,
-  to,
-  href,
-  primary = false,
-  outline = false,
-  small = false,
-  text = false,
-  disabled = false,
-  rounded = false,
-  large = false,
-  children,
-  leftIcon,
-  rightIcon,
-  onClick,
-  ...passProps
-}) {
-  let Comp = 'button';
-  const props = {
+    className,
+    to,
+    href,
+    primary = false,
+    outline = false,
+    small = false,
+    text = false,
+    disabled = false,
+    rounded = false,
+    large = false,
+    sent = false,
+    children,
+    leftIcon,
+    rightIcon,
     onClick,
-    ...passProps,
-  };
+    ...passProps
+}) {
+    let Comp = 'button';
+    const props = {
+        onClick,
+        ...passProps,
+    };
 
-  if (to) {
-    props.to = to;
-    Comp = Link;
-  } else if (href) {
-    props.href = href;
-    Comp = 'a';
-  }
+    if (to) {
+        props.to = to;
+        Comp = Link;
+    } else if (href) {
+        props.href = href;
+        Comp = 'a';
+    }
 
-  const classes = cx('wrapper', {
-    [className]: className,
-    primary,
-    outline,
-    text,
-    disabled,
-    rounded,
-    small,
-    large,
-  });
+    const classes = cx('wrapper', {
+        [className]: className,
+        primary,
+        outline,
+        text,
+        disabled,
+        rounded,
+        small,
+        large,
+        sent,
+    });
 
-  return (
-    <Comp className={classes} {...props}>
-      {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
-      <span className={cx('title')}>{children}</span>
-      {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
-    </Comp>
-  );
+    return (
+        <Comp className={classes} {...props}>
+            {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
+            <span className={cx('title')}>{children}</span>
+            {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
+        </Comp>
+    );
 }
 Button.propTypes = {
-  to: PropTypes.string,
-  href: PropTypes.string,
-  primary: PropTypes.bool,
-  outline: PropTypes.bool,
-  text: PropTypes.bool,
-  rounded: PropTypes.bool,
-  disabled: PropTypes.bool,
-  small: PropTypes.bool,
-  large: PropTypes.bool,
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  leftIcon: PropTypes.node,
-  rightIcon: PropTypes.node,
-  onClick: PropTypes.func,
+    to: PropTypes.string,
+    href: PropTypes.string,
+    primary: PropTypes.bool,
+    outline: PropTypes.bool,
+    text: PropTypes.bool,
+    rounded: PropTypes.bool,
+    disabled: PropTypes.bool,
+    small: PropTypes.bool,
+    large: PropTypes.bool,
+    sent: PropTypes.bool,
+    children: PropTypes.node.isRequired,
+    className: PropTypes.string,
+    leftIcon: PropTypes.node,
+    rightIcon: PropTypes.node,
+    onClick: PropTypes.func,
 };
 
 export default Button;

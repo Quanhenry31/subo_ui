@@ -5,7 +5,8 @@
     --black: #000;
     --text-color: #000;
     --white: #fff;
-
+    --color-text: rgb(106, 106, 106);
+    --color-green: #3b5d50;
     --font-family: 'Brands', sans-serif;
 
     //defaulayout
@@ -73,6 +74,9 @@ input,
 a {
     color: var(--text-color);
     text-decoration: none;
+}
+ul {
+    list-style: none;
 }
 // Fonts embeded
 @font-face {
