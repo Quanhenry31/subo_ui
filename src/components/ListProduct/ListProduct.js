@@ -5,7 +5,7 @@ import Product from './Product';
 
 const cx = classNames.bind(styles);
 
-function ListProduct() {
+function ListProduct({ data }) {
     return (
         // product
         <div>
@@ -23,9 +23,9 @@ function ListProduct() {
                     </div>
                     <div className={cx('home-right')}>
                         {/* list-product */}
-                        <Product />
-                        <Product />
-                        <Product />
+                        {data.slice(0, 3).map((product) => (
+                            <Product key={product.id} data={product} />
+                        ))}
                     </div>
                 </div>
             </div>

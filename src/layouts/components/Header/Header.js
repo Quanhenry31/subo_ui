@@ -6,10 +6,33 @@ import { Link } from 'react-router-dom';
 import config from '~/config';
 import { faCartShopping, faUserAlt } from '@fortawesome/free-solid-svg-icons';
 import Button from '~/components/Button';
-
+import { useLocation } from 'react-router-dom';
+import images from '~/assets/images';
 // import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 function Header() {
+    const location = useLocation();
+    const nameh1 = () => {
+        if (location.pathname === '/') {
+            return <h1>Modern Interior Design Studio</h1>;
+        }
+        if (location.pathname === '/shop') {
+            return <h1>Shop</h1>;
+        }
+        if (location.pathname === '/about') {
+            return <h1>About</h1>;
+        }
+        if (location.pathname === '/services') {
+            return <h1>Service</h1>;
+        }
+        if (location.pathname === '/blog') {
+            return <h1>Blog</h1>;
+        }
+        if (location.pathname === '/contact') {
+            return <h1>Contact</h1>;
+        }
+    };
+
     return (
         <header>
             {/* navbar and menu */}
@@ -59,7 +82,8 @@ function Header() {
             <div className={cx('navbackground')}>
                 <div className={cx('nav-left')}>
                     <div className={cx('modern')}>
-                        <h1>Modern Interior Design Studio</h1>
+                        {nameh1()}
+
                         <h6>
                             Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate
                             velit imperdiet dolor tempor tristique.
@@ -69,11 +93,7 @@ function Header() {
                     </div>
                 </div>
                 <div className={cx('nav-right')}>
-                    <img
-                        className={cx('nav-right-img')}
-                        src="https://themewagon.github.io/furni/images/couch.png"
-                        alt="error img"
-                    />
+                    <img className={cx('nav-right-img')} src={images.couch} alt="error img" />
                 </div>
             </div>
         </header>
