@@ -5,13 +5,12 @@ import classNames from 'classnames/bind';
 import productFake from '../../data/products.json';
 
 const cx = classNames.bind(styles);
-console.log(productFake);
 
 function Shop() {
     return (
         <div className={cx('shop_product')}>
             <div className={cx('shop_product_list')}>
-                {productFake.map((product) => (
+                {productFake.slice(0, 6).map((product) => (
                     <Product key={product.id} data={product} />
                 ))}
                 {/* <Product data={productFake} /> */}

@@ -4,12 +4,57 @@ import classNames from 'classnames/bind';
 import styles from './Header.modules.scss';
 import { Link } from 'react-router-dom';
 import config from '~/config';
-import { faCartShopping, faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCartShopping,
+    faUserAlt,
+    faCircleQuestion,
+    faEarthAsia,
+    faGear,
+    faKeyboard,
+    faRightToBracket,
+    faUser,
+} from '@fortawesome/free-solid-svg-icons';
+import { faTiktok } from '@fortawesome/free-brands-svg-icons';
+
 import Button from '~/components/Button';
 import { useLocation } from 'react-router-dom';
 import images from '~/assets/images';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
+import Image from '~/components/Image';
+import Menu from '~/components/Popper/Menu';
 // import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
+const MENU_ITEMS = [
+    {
+        icon: <FontAwesomeIcon icon={faEarthAsia}></FontAwesomeIcon>,
+        title: 'English',
+        children: {
+            title: 'Language',
+            data: [
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+            ],
+        },
+    },
+    {
+        icon: <FontAwesomeIcon icon={faCircleQuestion}></FontAwesomeIcon>,
+        title: 'Feedback and Help',
+        to: './feedback',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faKeyboard}></FontAwesomeIcon>,
+        title: 'Keyboard shortcuts',
+    },
+];
 function Header() {
     const location = useLocation();
     const nameh1 = () => {
@@ -32,7 +77,42 @@ function Header() {
             return <h1>Contact</h1>;
         }
     };
+    const currentUser = true;
 
+    //Handle logic
+    const handleMenuChange = (menuItem) => {
+        switch (menuItem.type) {
+            case 'language':
+                //Handle chage language
+                break;
+            default:
+        }
+    };
+
+    const userMenu = [
+        {
+            icon: <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>,
+            title: 'View profile',
+            to: './viewprofile',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faTiktok}></FontAwesomeIcon>,
+            title: 'Get coins',
+            to: './coins',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faGear}></FontAwesomeIcon>,
+            title: 'Settings',
+            to: './setting',
+        },
+        ...MENU_ITEMS,
+        {
+            icon: <FontAwesomeIcon icon={faRightToBracket}></FontAwesomeIcon>,
+            title: 'Log out',
+            to: './out',
+            separate: true,
+        },
+    ];
     return (
         <header>
             {/* navbar and menu */}
@@ -43,34 +123,58 @@ function Header() {
                     </Link>
                 </div>
                 <div className={cx('main-menu')}>
-                    <ul>
+                    <ul className={cx('main-menu-ul')}>
                         <li>
-                            <Link to={config.routes.home}>Home</Link>
+                            <Link className={cx('menu-hover-a')} to={config.routes.home}>
+                                Home
+                            </Link>
                         </li>
                         <li>
-                            <Link to={config.routes.shop}>Shop</Link>
+                            <Link className={cx('menu-hover-a')} to={config.routes.shop}>
+                                Shop
+                            </Link>
                         </li>
                         <li>
-                            <Link to={config.routes.about}>About</Link>
+                            <Link className={cx('menu-hover-a')} to={config.routes.about}>
+                                About
+                            </Link>
                         </li>
                         <li>
-                            <Link to={config.routes.services}>Service</Link>
+                            <Link className={cx('menu-hover-a')} to={config.routes.services}>
+                                Service
+                            </Link>
                         </li>
                         <li>
-                            <Link to={config.routes.blog}>Blog</Link>
+                            <Link className={cx('menu-hover-a')} to={config.routes.blog}>
+                                Blog
+                            </Link>
                         </li>
                         <li>
-                            <Link to={config.routes.contact}>Contact us</Link>
+                            <Link className={cx('menu-hover-a')} to={config.routes.contact}>
+                                Contact us
+                            </Link>
                         </li>
                         {/* menu-user,cart */}
                         <div className={cx('menu-li')}>
                             <li>
-                                <Link to={config.routes.login}>
+                                {/* <Link to={config.routes.login}>
                                     <FontAwesomeIcon icon={faUserAlt} />
-                                </Link>
+                                </Link> */}
+
+                                <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
+                                    {currentUser ? (
+                                        <Link className={cx('menu-hover-a')} to={config.routes.login}>
+                                            <FontAwesomeIcon icon={faUserAlt} />
+                                        </Link>
+                                    ) : (
+                                        <Link to={config.routes.login}>
+                                            <FontAwesomeIcon icon={faUserAlt} />
+                                        </Link>
+                                    )}
+                                </Menu>
                             </li>
                             <li>
-                                <Link to={config.routes.cart}>
+                                <Link className={cx('menu-hover-a')} to={config.routes.cart}>
                                     <FontAwesomeIcon icon={faCartShopping} />
                                 </Link>
                             </li>

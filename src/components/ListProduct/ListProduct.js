@@ -22,7 +22,6 @@ function ListProduct({ data }) {
                         </div>
                     </div>
                     <div className={cx('home-right')}>
-                        {/* list-product */}
                         {data.slice(0, 3).map((product) => (
                             <Product key={product.id} data={product} />
                         ))}
