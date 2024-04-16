@@ -34,5 +34,17 @@
         "name": "Ergonomic Chair",
         "price": 50.5,
         "image": "https://themewagon.github.io/furni/images/product-3.png"
+    },
+    {
+        "id": 3,
+        "name": "Ergonomic Chair",
+        "price": 50.5,
+        "image": "https://themewagon.github.io/furni/images/product-3.png"
+    },
+    {
+        "id": 1,
+        "name": "Nordic Chair",
+        "price": 50.5,
+        "image": "https://themewagon.github.io/furni/images/product-1.png"
     }
 ]
