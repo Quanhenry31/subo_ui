@@ -8,6 +8,7 @@
     --color-text: rgb(106, 106, 106);
     --color-green: #3b5d50;
     --font-family: 'Trocchi', sans-serif;
+    --bs-body-bg: #eff2f1;
 
     //defaulayout
     --default-layout-header-height: 60px;
@@ -19,6 +20,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    --bs-table-bg: var(--bs-body-bg);
 }
 
 html {
@@ -34,6 +36,15 @@ body {
     line-height: 1.5;
     text-rendering: optimizeSpeed;
     overflow-y: overlay;
+}
+/// ma giam gia input
+input#coupon {
+    background: #fff;
+}
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 0;
+    align-items: center;
 }
 
 //Scollbar css
@@ -77,6 +88,9 @@ a {
 }
 ul {
     list-style: none;
+}
+.slick-prev:before {
+    content: 's';
 }
 // Fonts embeded
 @font-face {

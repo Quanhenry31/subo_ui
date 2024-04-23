@@ -1,8 +1,9 @@
+import React from 'react';
+import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import classNames from 'classnames/bind';
 import styles from './Header.modules.scss';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import config from '~/config';
 import {
     faCartShopping,
@@ -25,6 +26,7 @@ import Image from '~/components/Image';
 import Menu from '~/components/Popper/Menu';
 // import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
+
 const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia}></FontAwesomeIcon>,
@@ -55,26 +57,120 @@ const MENU_ITEMS = [
         title: 'Keyboard shortcuts',
     },
 ];
+
 function Header() {
     const location = useLocation();
     const nameh1 = () => {
         if (location.pathname === '/') {
-            return <h1>Modern Interior Design Studio</h1>;
+            return (
+                <div className={cx('intro-excerpt')}>
+                    <h1>
+                        Modern Interior <span className={cx('d-block')}>Design Studio</span>
+                    </h1>
+                    <p className={cx('mb-4')}>
+                        Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit
+                        imperdiet dolor tempor tristique.
+                    </p>
+                    <p>
+                        <a href="" className={cx('btn', 'btn-secondary', 'me-2')}>
+                            Shop Now
+                        </a>
+                        <a href="#" className={cx('btn', 'btn-white-outline')}>
+                            Explore
+                        </a>
+                    </p>
+                </div>
+            );
         }
         if (location.pathname === '/shop') {
-            return <h1>Shop</h1>;
+            return (
+                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
+                    <h1>
+                        <span className={cx('d-block')}>Shop</span>
+                    </h1>
+                    <p className={cx('mb-4')}></p>
+                </div>
+            );
         }
         if (location.pathname === '/about') {
-            return <h1>About</h1>;
+            return (
+                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
+                    <h1>
+                        <span className={cx('d-block')}>About</span>
+                    </h1>
+                    <p className={cx('mb-4')}></p>
+                </div>
+            );
         }
         if (location.pathname === '/services') {
-            return <h1>Service</h1>;
+            return (
+                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
+                    <h1>
+                        <span className={cx('d-block')}>Services</span>
+                    </h1>
+                    <p className={cx('mb-4')}></p>
+                </div>
+            );
         }
         if (location.pathname === '/blog') {
-            return <h1>Blog</h1>;
+            return (
+                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
+                    <h1>
+                        <span className={cx('d-block')}>Blog</span>
+                    </h1>
+                    <p className={cx('mb-4')}></p>
+                </div>
+            );
         }
         if (location.pathname === '/contact') {
-            return <h1>Contact</h1>;
+            return (
+                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
+                    <h1>
+                        <span className={cx('d-block')}>Contact</span>
+                    </h1>
+                    <p className={cx('mb-4')}></p>
+                </div>
+            );
+        }
+        if (location.pathname === '/login') {
+            return (
+                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
+                    <h1>
+                        <span className={cx('d-block')}>Login</span>
+                    </h1>
+                    <p className={cx('mb-4')}></p>
+                </div>
+            );
+        }
+        if (location.pathname === '/cart') {
+            return (
+                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
+                    <h1>
+                        <span className={cx('d-block')}>Cart</span>
+                    </h1>
+                    <p className={cx('mb-4')}></p>
+                </div>
+            );
+        }
+        if (location.pathname === '/oneProduct') {
+            return (
+                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
+                    <h1>
+                        <span className={cx('d-block')}>Product detail</span>
+                    </h1>
+                    <p className={cx('mb-4')}></p>
+                </div>
+            );
+        }
+        if (location.pathname === '/checkOut') {
+            return (
+                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
+                    <h1>
+                        <span className={cx('d-block')}>Payment</span>
+                    </h1>
+                    <p className={cx('mb-4')}></p>
+                </div>
+            );
         }
     };
     const currentUser = true;
@@ -116,90 +212,147 @@ function Header() {
     return (
         <header>
             {/* navbar and menu */}
-            <div className={cx('navbar')}>
-                <div className={cx('main-logo')}>
-                    <Link className={cx('logo')}>
-                        Subo<span>.</span>
-                    </Link>
-                </div>
-                <div className={cx('main-menu')}>
-                    <ul className={cx('main-menu-ul')}>
-                        <li>
-                            <Link className={cx('menu-hover-a')} to={config.routes.home}>
-                                Home
-                            </Link>
-                        </li>
-                        <li>
-                            <Link className={cx('menu-hover-a')} to={config.routes.shop}>
-                                Shop
-                            </Link>
-                        </li>
-                        <li>
-                            <Link className={cx('menu-hover-a')} to={config.routes.about}>
-                                About
-                            </Link>
-                        </li>
-                        <li>
-                            <Link className={cx('menu-hover-a')} to={config.routes.services}>
-                                Service
-                            </Link>
-                        </li>
-                        <li>
-                            <Link className={cx('menu-hover-a')} to={config.routes.blog}>
-                                Blog
-                            </Link>
-                        </li>
-                        <li>
-                            <Link className={cx('menu-hover-a')} to={config.routes.contact}>
-                                Contact us
-                            </Link>
-                        </li>
-                        {/* menu-user,cart */}
-                        <div className={cx('menu-li')}>
-                            <li>
-                                {/* <Link to={config.routes.login}>
-                                    <FontAwesomeIcon icon={faUserAlt} />
-                                </Link> */}
+            <>
+                {/* Start Header/Navigation */}
+                <nav
+                    className={cx('custom-navbar', 'navbar', 'navbar-expand-md', 'navbar-dark', 'bg-dark')}
+                    arial-label="Furni navigation bar"
+                >
+                    <div className="container">
+                        <a className="navbar-brand" href="index.html">
+                            Furni<span>.</span>
+                        </a>
+                        <button
+                            className="navbar-toggler"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarsFurni"
+                            aria-controls="navbarsFurni"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                        >
+                            <span className="navbar-toggler-icon" />
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarsFurni">
+                            <ul className={cx('custom-navbar-nav', 'navbar-nav', 'ms-auto', 'mb-2', 'mb-md-0')}>
+                                <NavLink
+                                    to={config.routes.home}
+                                    className={(nav) =>
+                                        cx('nav-link nav-item ', {
+                                            active: nav.isActive,
+                                        })
+                                    }
+                                >
+                                    <span>Home</span>
+                                </NavLink>
 
-                                <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
-                                    {currentUser ? (
-                                        <Link className={cx('menu-hover-a')} to={config.routes.login}>
-                                            <FontAwesomeIcon icon={faUserAlt} />
-                                        </Link>
-                                    ) : (
-                                        <Link to={config.routes.login}>
-                                            <FontAwesomeIcon icon={faUserAlt} />
-                                        </Link>
-                                    )}
-                                </Menu>
-                            </li>
-                            <li>
-                                <Link className={cx('menu-hover-a')} to={config.routes.cart}>
-                                    <FontAwesomeIcon icon={faCartShopping} />
-                                </Link>
-                            </li>
+                                <NavLink
+                                    to={config.routes.shop}
+                                    className={(nav) =>
+                                        cx('nav-link nav-item ', {
+                                            active: nav.isActive,
+                                        })
+                                    }
+                                >
+                                    <span>Shop</span>
+                                </NavLink>
+
+                                <NavLink
+                                    to={config.routes.about}
+                                    className={(nav) =>
+                                        cx('nav-link nav-item', {
+                                            active: nav.isActive,
+                                        })
+                                    }
+                                >
+                                    <span>About us</span>
+                                </NavLink>
+
+                                <NavLink
+                                    to={config.routes.services}
+                                    className={(nav) =>
+                                        cx('nav-link nav-item', {
+                                            active: nav.isActive,
+                                        })
+                                    }
+                                >
+                                    <span>Services</span>
+                                </NavLink>
+
+                                <NavLink
+                                    to={config.routes.blog}
+                                    className={(nav) =>
+                                        cx('nav-link nav-item', {
+                                            active: nav.isActive,
+                                        })
+                                    }
+                                >
+                                    <span>Blog</span>
+                                </NavLink>
+
+                                <NavLink
+                                    to={config.routes.contact}
+                                    className={(nav) =>
+                                        cx('nav-link nav-item', {
+                                            active: nav.isActive,
+                                        })
+                                    }
+                                >
+                                    <span>Contact us</span>
+                                </NavLink>
+                            </ul>
+                            <ul className={cx('custom-navbar-cta', 'navbar-nav', 'mb-2', 'mb-md-0', 'ms-5')}>
+                                <li>
+                                    <NavLink
+                                        to={config.routes.login}
+                                        className={(nav) =>
+                                            cx('nav-link nav-item', {
+                                                active: nav.isActive,
+                                            })
+                                        }
+                                    >
+                                        <span>
+                                            <img src="https://themewagon.github.io/furni/images/user.svg" />
+                                        </span>
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink
+                                        to={config.routes.cart}
+                                        className={(nav) =>
+                                            cx('nav-link nav-item', {
+                                                active: nav.isActive,
+                                            })
+                                        }
+                                    >
+                                        <span>
+                                            <img src="https://themewagon.github.io/furni/images/cart.svg" />
+                                        </span>
+                                    </NavLink>
+                                </li>
+                            </ul>
                         </div>
-                    </ul>
-                </div>
-            </div>
-            {/* anh navbar */}
-            <div className={cx('navbackground')}>
-                <div className={cx('nav-left')}>
-                    <div className={cx('modern')}>
-                        {nameh1()}
-
-                        <h6>
-                            Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate
-                            velit imperdiet dolor tempor tristique.
-                        </h6>
-                        <Button primary>Shop now</Button>
-                        <Button outline>Explore</Button>
+                    </div>
+                </nav>
+                {/* End Header/Navigation */}
+                {/* Start Hero Section */}
+                <div className={cx('hero')}>
+                    <div className={cx('container')}>
+                        <div className={cx('row', 'justify-content-between')}>
+                            <div className={cx('col-lg-5')}>{nameh1()}</div>
+                            <div className={cx('col-lg-7')}>
+                                <div className={cx('hero-img-wrap')}>
+                                    <img
+                                        src="https://themewagon.github.io/furni/images/couch.png"
+                                        className={cx('img-fluid')}
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className={cx('nav-right')}>
-                    <img className={cx('nav-right-img')} src={images.couch} alt="error img" />
-                </div>
-            </div>
+                {/* End Hero Section */}
+            </>
         </header>
     );
 }

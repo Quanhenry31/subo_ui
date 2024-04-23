@@ -10,148 +10,177 @@ const cx = classNames.bind(styles);
 
 function Footer() {
     return (
-        <div className={cx('footer-main')}>
-            <div className={cx('footer-contact')}>
-                <div className={cx('footer-contact-bot')}>
-                    <div className={cx('bot-right')}>
-                        <div className={cx('bot-right-flex')}>
-                            <FontAwesomeIcon icon={faEnvelope} className={cx('icon-mail')} />
-                            <h5>Subscribe to Newsletter</h5>
-                        </div>
+        <>
+            {/* Start Footer Section */}
 
-                        <input name="name" type="text" placeholder="Enter your name" />
-                        <input name="email" type="email" placeholder="Enter your email" />
-                        <Button sent>
-                            <FontAwesomeIcon icon={faPaperPlane} />
-                        </Button>
+            <footer className={cx('footer-section')} style={{ backgroundColor: '#eff2f1' }}>
+                <div className={cx('container', 'relative')}>
+                    <div className={cx('sofa-img')}>
+                        <img
+                            src="https://themewagon.github.io/furni/images/sofa.png"
+                            alt="Image"
+                            className={cx('img-fluid')}
+                        />
                     </div>
-                    <div className={cx('bot-left')}>
-                        <div className={cx('bot-left-img')}>
-                            <img src="https://themewagon.github.io/furni/images/sofa.png" alt="err img" />
+                    <div className={cx('row')}>
+                        <div className={cx('col-lg-8')}>
+                            <div className={cx('subscription-form')}>
+                                <h3 className={cx('d-flex', 'align-items-center')}>
+                                    <span className={cx('me-1')}>
+                                        <img
+                                            src="https://themewagon.github.io/furni/images/envelope-outline.svg"
+                                            alt="Image"
+                                            className={cx('img-fluid')}
+                                        />
+                                    </span>
+                                    <span>Subscribe to Newsletter</span>
+                                </h3>
+                                <form action="#" className={cx('row', 'g-3')}>
+                                    <div className={cx('col-auto')}>
+                                        <input
+                                            type="text"
+                                            className={cx('form-control')}
+                                            placeholder="Enter your name"
+                                        />
+                                    </div>
+                                    <div className={cx('col-auto')}>
+                                        <input
+                                            type="email"
+                                            className={cx('form-control')}
+                                            placeholder="Enter your email"
+                                        />
+                                    </div>
+                                    <div className={cx('col-auto')}>
+                                        <button className={cx('btn', 'btn-primary')}>
+                                            <span className={cx('fa fa-paper-plane')} />
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className={cx('footer-contact-cent')}>
-                    <div className={cx('footer-contact-cent-right')}>
-                        <div className={cx('footer-logo')}>
-                            <Link className={cx('logo')}>
-                                Subo<span>.</span>
-                            </Link>
-                        </div>
-                        <div className={cx('footer-title')}>
-                            <h3>
+                    <div className={cx('row', 'g-5', 'mb-5')}>
+                        <div className={cx('col-lg-4')}>
+                            <div className={cx('mb-4', 'footer-logo-wrap')}>
+                                <a href="#" className={cx('footer-logo')}>
+                                    Furni<span>.</span>
+                                </a>
+                            </div>
+                            <p className={cx('mb-4')}>
                                 Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus
                                 malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor
                                 tristique. Pellentesque habitant
-                            </h3>
+                            </p>
+                            <ul className={cx('list-unstyled', 'custom-social')}>
+                                <li>
+                                    <a href="#">
+                                        <span className={cx('fa fa-brands fa-facebook-f')} />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span className={cx('fa fa-brands fa-twitter')} />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span className={cx('fa fa-brands fa-instagram')} />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span className={cx('fa fa-brands fa-linkedin')} />
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-
-                        <div className={cx('footer-social')}>
-                            <div className={cx('footer-social-icon')}>
-                                <FontAwesomeIcon icon={faFacebook} className={cx('icon-social')} />
-                            </div>
-                            <div className={cx('footer-social-icon')}>
-                                <FontAwesomeIcon icon={faTwitter} className={cx('icon-social')} />
-                            </div>
-                            <div className={cx('footer-social-icon')}>
-                                <FontAwesomeIcon icon={faInstagram} className={cx('icon-social')} />
-                            </div>
-                            <div className={cx('footer-social-icon')}>
-                                <FontAwesomeIcon icon={faYoutube} className={cx('icon-social')} />
-                            </div>
-                        </div>
-                    </div>
-                    <div className={cx('footer-contact-cent-left')}>
-                        <ul>
-                            <li>
-                                <h3>support</h3>
-                            </li>
-                            <li>
-                                <h3>support</h3>
-                            </li>
-                            <li>
-                                <h3>support</h3>
-                            </li>
-                            <li>
-                                <h3>support</h3>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <h3>support</h3>
-                            </li>
-                            <li>
-                                <h3>support</h3>
-                            </li>
-                            <li>
-                                <h3>support</h3>
-                            </li>
-                            <li>
-                                <h3>support</h3>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <h3>support</h3>
-                            </li>
-                            <li>
-                                <h3>support</h3>
-                            </li>
-                            <li>
-                                <h3>support</h3>
-                            </li>
-                            <li>
-                                <h3>support</h3>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <h3>support</h3>
-                            </li>
-                            <li>
-                                <h3>support</h3>
-                            </li>
-                            <li>
-                                <h3>support</h3>
-                            </li>
-                            <li>
-                                <h3>support</h3>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div className={cx('footer-contact-dow')}>
-                    <div className={cx('grid')}>
-                        <div className={cx('row')}>
-                            <div className={cx('copyright', 'col', 'l-6')}>
-                                <h3>
-                                    Copyright ©2024. All Rights Reserved. — Designed with love by Untree.co Distributed
-                                    By ThemeWagon
-                                </h3>
-                            </div>
-                            <div className={cx('col', 'l-6')}>
-                                <div className={cx('policy')}>
-                                    <ul>
+                        <div className={cx('col-lg-8')}>
+                            <div className={cx('row', 'links-wrap')}>
+                                <div className={cx('col-6', 'col-sm-6', 'col-md-3')}>
+                                    <ul className={cx('list-unstyled')}>
                                         <li>
-                                            <Link>
-                                                <h3>Terms & Conditions</h3>
-                                            </Link>
+                                            <a href="#">About us</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Services</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Blog</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Contact us</a>
                                         </li>
                                     </ul>
-                                    <ul>
+                                </div>
+                                <div className={cx('col-6', 'col-sm-6', 'col-md-3')}>
+                                    <ul className={cx('list-unstyled')}>
                                         <li>
-                                            <Link>
-                                                <h3>Privacy Policy</h3>
-                                            </Link>
+                                            <a href="#">Support</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Knowledge base</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Live chat</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className={cx('col-6', 'col-sm-6', 'col-md-3')}>
+                                    <ul className={cx('list-unstyled')}>
+                                        <li>
+                                            <a href="#">Jobs</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Our team</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Leadership</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Privacy Policy</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className={cx('col-6', 'col-sm-6', 'col-md-3')}>
+                                    <ul className={cx('list-unstyled')}>
+                                        <li>
+                                            <a href="#">Nordic Chair</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Kruzo Aero</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Ergonomic Chair</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div className={cx('border-top', 'copyright')}>
+                        <div className={cx('row', 'pt-4')}>
+                            <div className={cx('col-lg-6')}>
+                                <p className={cx('mb-2', 'text-center', 'text-lg-start')}>
+                                    Copyright © . All Rights Reserved. — Designed with love by
+                                    <a href="https://untree.co">Untree.co</a> Distributed By
+                                    <a hreff="https://themewagon.com">ThemeWagon</a>
+                                </p>
+                            </div>
+                            <div className={cx('col-lg-6', 'text-center', 'text-lg-end')}>
+                                <ul className={cx('list-unstyled', 'd-inline-flex', 'ms-auto')}>
+                                    <li className={cx('modern')}>
+                                        <a href="#">Terms &amp; Conditions</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Privacy Policy</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </footer>
+        </>
     );
 }
 

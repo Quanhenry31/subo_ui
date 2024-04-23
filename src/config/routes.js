@@ -1,4 +1,3 @@
-
 const routes = {
     home: '/',
     shop: '/shop',
@@ -9,6 +8,8 @@ const routes = {
     login: '/login',
     signup: '/signup',
     cart: '/cart',
-}
+    oneProduct: '/oneProduct',
+    checkOut: '/checkOut',
+};
 
 export default routes;
