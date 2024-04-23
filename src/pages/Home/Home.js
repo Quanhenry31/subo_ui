@@ -31,9 +31,13 @@ function Home() {
                                 velit imperdiet dolor tempor tristique.
                             </p>
                             <p>
-                                <a href="shop.html" className={cx('btn')}>
+                                {/* <a href="shop.html" className={cx('btn')}>
                                     Explore
-                                </a>
+                                </a> */}
+                                <Button outline className={cx('btn')}>
+                                    {' '}
+                                    Explore
+                                </Button>
                             </p>
                         </div>
                         {/* End Column 1 */}
@@ -124,9 +128,13 @@ function Home() {
                                 <li>Donec vitae odio quis nisl dapibus malesuada</li>
                             </ul>
                             <p>
-                                <a href="#" className={cx('btn')}>
+                                {/* <a href="#" className={cx('btn')}>
                                     Explore
-                                </a>
+                                </a> */}
+                                <Button outline className={cx('btn')}>
+                                    {' '}
+                                    Explore
+                                </Button>
                             </p>
                         </div>
                     </div>

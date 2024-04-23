@@ -1,7 +1,7 @@
 import config from '~/config';
 
 //Layout
-import { HeaderOnly } from '~/layouts';
+import layouts, { HeaderOnly } from '~/layouts';
 
 import Home from '~/pages/Home';
 import Shop from '~/pages/Shop';
@@ -23,7 +23,7 @@ const publicRoutes = [
     { path: config.routes.blog, component: Blog },
     { path: config.routes.contact, component: Contact },
     { path: config.routes.login, component: Login, layout: null },
-    { path: config.routes.signup, component: Signup },
+    { path: config.routes.signup, component: Signup, layout: null },
     { path: config.routes.cart, component: Cart },
     { path: config.routes.oneProduct, component: OneProduct },
     { path: config.routes.checkOut, component: checkOut },

@@ -68,7 +68,11 @@ function About() {
                                 <div className={cx('col-6', 'col-md-6')}>
                                     <div className={cx('feature')}>
                                         <div className={cx('icon')}>
-                                            <img src="images/return.svg" alt="Image" className={cx('img-fluid')} />
+                                            <img
+                                                src="https://themewagon.github.io/furni/images/return.svg"
+                                                alt="Image"
+                                                className={cx('img-fluid')}
+                                            />
                                         </div>
                                         <h3>Hassle Free Returns</h3>
                                         <p>

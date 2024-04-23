@@ -14,6 +14,7 @@ import {
     faKeyboard,
     faRightToBracket,
     faUser,
+    faEllipsisVertical,
 } from '@fortawesome/free-solid-svg-icons';
 import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 
@@ -47,15 +48,6 @@ const MENU_ITEMS = [
             ],
         },
     },
-    {
-        icon: <FontAwesomeIcon icon={faCircleQuestion}></FontAwesomeIcon>,
-        title: 'Feedback and Help',
-        to: './feedback',
-    },
-    {
-        icon: <FontAwesomeIcon icon={faKeyboard}></FontAwesomeIcon>,
-        title: 'Keyboard shortcuts',
-    },
 ];
 
 function Header() {
@@ -72,12 +64,18 @@ function Header() {
                         imperdiet dolor tempor tristique.
                     </p>
                     <p>
-                        <a href="" className={cx('btn', 'btn-secondary', 'me-2')}>
+                        {/* <a href="" className={cx('btn', 'btn-secondary', 'me-2')}></a> */}
+                        <Button primary className={cx('btn', 'btn-secondary', 'me-2')}>
+                            {' '}
                             Shop Now
-                        </a>
-                        <a href="#" className={cx('btn', 'btn-white-outline')}>
+                        </Button>
+                        {/* <a href="#" className={cx('btn', 'btn-white-outline')}>
                             Explore
-                        </a>
+                        </a> */}
+                        <Button outline className={cx('btn', 'btn-white-outline')}>
+                            {' '}
+                            Explore
+                        </Button>
                     </p>
                 </div>
             );
@@ -205,7 +203,7 @@ function Header() {
         {
             icon: <FontAwesomeIcon icon={faRightToBracket}></FontAwesomeIcon>,
             title: 'Log out',
-            to: './out',
+            to: './login',
             separate: true,
         },
     ];
@@ -219,9 +217,12 @@ function Header() {
                     arial-label="Furni navigation bar"
                 >
                     <div className="container">
-                        <a className="navbar-brand" href="index.html">
+                        {/* <a className="navbar-brand" href="index.html">
                             Furni<span>.</span>
-                        </a>
+                        </a> */}
+                        <Link to={config.routes.home} className="navbar-brand">
+                            Furni<span>.</span>
+                        </Link>
                         <button
                             className="navbar-toggler"
                             type="button"
@@ -304,20 +305,6 @@ function Header() {
                             <ul className={cx('custom-navbar-cta', 'navbar-nav', 'mb-2', 'mb-md-0', 'ms-5')}>
                                 <li>
                                     <NavLink
-                                        to={config.routes.login}
-                                        className={(nav) =>
-                                            cx('nav-link nav-item', {
-                                                active: nav.isActive,
-                                            })
-                                        }
-                                    >
-                                        <span>
-                                            <img src="https://themewagon.github.io/furni/images/user.svg" />
-                                        </span>
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink
                                         to={config.routes.cart}
                                         className={(nav) =>
                                             cx('nav-link nav-item', {
@@ -329,6 +316,22 @@ function Header() {
                                             <img src="https://themewagon.github.io/furni/images/cart.svg" />
                                         </span>
                                     </NavLink>
+                                </li>
+                                <li>
+                                    <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
+                                        {currentUser ? (
+                                            <Image
+                                                className={cx('user-avatar')}
+                                                src="https://scontent-hkg1-1.xx.fbcdn.net/v/t39.30808-1/279861878_1636305450077264_1549291109211245035_n.jpg?stp=cp0_dst-jpg_p60x60&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=r0pnRX5BInMQ7kNvgFK3rTm&_nc_oc=AdgwaFSjZL7hlKdEm96GTldUixB6ZaNvPz9IqoO1RHOUbd_QvEh72GSyY-0slVy9tfM&_nc_ht=scontent-hkg1-1.xx&oh=00_AfDfOYppTSLa4cchUuKAWQI-0EXqVqfWe1voU2uzZJkOUw&oe=662CF425"
+                                                alt="avatar"
+                                                fallback="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/d80d1f6d50cd3b37510964b21f2fb571~c5_100x100.jpeg?lk3s=a5d48078&x-expires=1709733600&x-signature=JqERa95Mhczw9L7N93MLgkhx3UE%3D"
+                                            />
+                                        ) : (
+                                            <button className={cx('more-btn')}>
+                                                <FontAwesomeIcon icon={faEllipsisVertical} />
+                                            </button>
+                                        )}
+                                    </Menu>
                                 </li>
                             </ul>
                         </div>

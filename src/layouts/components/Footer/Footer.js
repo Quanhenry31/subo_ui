@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 import { faEnvelope, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import Button from '~/components/Button';
 import { Link } from 'react-router-dom';
+import config from '~/config';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const cx = classNames.bind(styles);
@@ -62,9 +63,12 @@ function Footer() {
                     <div className={cx('row', 'g-5', 'mb-5')}>
                         <div className={cx('col-lg-4')}>
                             <div className={cx('mb-4', 'footer-logo-wrap')}>
-                                <a href="#" className={cx('footer-logo')}>
+                                {/* <a href="#" className={cx('footer-logo')}>
                                     Furni<span>.</span>
-                                </a>
+                                </a> */}
+                                <Link to={config.routes.home} className={cx('footer-logo')}>
+                                    Furni<span>.</span>
+                                </Link>
                             </div>
                             <p className={cx('mb-4')}>
                                 Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus
@@ -73,24 +77,24 @@ function Footer() {
                             </p>
                             <ul className={cx('list-unstyled', 'custom-social')}>
                                 <li>
-                                    <a href="#">
+                                    <Link to={config.routes.home}>
                                         <span className={cx('fa fa-brands fa-facebook-f')} />
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <Link to={config.routes.home}>
                                         <span className={cx('fa fa-brands fa-twitter')} />
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <Link to={config.routes.home}>
                                         <span className={cx('fa fa-brands fa-instagram')} />
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <Link to={config.routes.home}>
                                         <span className={cx('fa fa-brands fa-linkedin')} />
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>

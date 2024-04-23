@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import config from '~/config';
-import styles from './Login.module.scss';
+
+import styles from './SignUp.module.scss';
 import classNames from 'classnames/bind';
-import routes from '~/config/routes';
 const cx = classNames.bind(styles);
 
-function Login() {
+function SignUp() {
     return (
         <>
             <section className="vh-100">
@@ -18,6 +18,7 @@ function Login() {
                                     style={{ color: '#709085' }}
                                 />
                                 <span className={cx('h1', 'fw-bold', 'mb-0')}>
+                                    {' '}
                                     <Link to={config.routes.home} className={cx('footer-logo')}>
                                         Furni<span>.</span>
                                     </Link>
@@ -38,8 +39,18 @@ function Login() {
                             >
                                 <form className={cx('w-75')}>
                                     <h3 className={cx('fw-normal', 'mb-3', 'pb-3')} style={{ letterSpacing: 1 }}>
-                                        Log in
+                                        Sign up
                                     </h3>
+                                    <div className={cx('form-outline', 'mb-4')}>
+                                        <input
+                                            type="text"
+                                            id="form2Example18"
+                                            className={cx('form-control', 'form-control-lg')}
+                                        />
+                                        <label className="form-label" htmlFor="form2Example18">
+                                            Full name
+                                        </label>
+                                    </div>
                                     <div className={cx('form-outline', 'mb-4')}>
                                         <input
                                             type="email"
@@ -62,7 +73,7 @@ function Login() {
                                     </div>
                                     <div className={cx('pt-1', 'mb-4')}>
                                         <button className={cx('btn', 'btn-info', 'btn-lg', 'btn-block')} type="button">
-                                            Login
+                                            Register
                                         </button>
                                     </div>
                                     <p className={cx('small', 'mb-5', 'pb-lg-2')}>
@@ -71,12 +82,12 @@ function Login() {
                                         </a>
                                     </p>
                                     <p>
-                                        Don't have an account?{' '}
+                                        Log out?{' '}
                                         {/* <a href="#!" className={cx('link-info')}>
                                             Register here
                                         </a> */}
-                                        <Link to={config.routes.signup} className={cx('link-info')}>
-                                            Register here
+                                        <Link to={config.routes.login} className={cx('link-info')}>
+                                            Back login
                                         </Link>
                                     </p>
                                 </form>
@@ -97,4 +108,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default SignUp;
