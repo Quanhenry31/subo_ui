@@ -8,8 +8,10 @@ const routes = {
     login: '/login',
     signup: '/signup',
     cart: '/cart',
-    oneProduct: '/oneProduct',
+    oneProduct: '/products/:id',
     checkOut: '/checkOut',
+
+    // admin: '/admin',
 };
 
 export default routes;

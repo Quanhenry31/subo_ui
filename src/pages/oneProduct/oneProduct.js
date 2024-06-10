@@ -1,8 +1,41 @@
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import styles from './oneProduct.scss';
 import classNames from 'classnames/bind';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '~/redux/cartSlice';
 const cx = classNames.bind(styles);
 
-function oneProduct() {
+function OneProduct() {
+    const dispatch = useDispatch();
+    const { id } = useParams();
+    const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        axios
+            .get(`http://localhost:5000/products/products/${id}`)
+            .then((response) => {
+                setProduct(response.data.data);
+                console.log(response);
+                console.log(setProduct);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.error('There was an error fetching the product data!', error);
+                setLoading(false);
+            });
+    }, [id]);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (!product) {
+        return <div>Product not found</div>;
+    }
+
     return (
         <>
             {/* single product */}
@@ -11,32 +44,26 @@ function oneProduct() {
                     <div className={cx('row')}>
                         <div className={cx('col-md-5')}>
                             <div className={cx('single-product-img')}>
-                                <img
-                                    src="https://themewagon.github.io/fruitkha/assets/img/products/product-img-5.jpg"
-                                    alt=""
-                                />
+                                <img src={product.image} alt={product.name} />
                             </div>
                         </div>
                         <div className={cx('col-md-7')}>
                             <div className={cx('single-product-content')}>
-                                <h3>Green apples have polyphenols</h3>
+                                <h3>{product.name}</h3>
                                 <p className={cx('single-product-pricing')}>
-                                    <span>Per Kg</span> $50
+                                    <span>Per Kg</span> ${product.price}
                                 </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta sint dignissimos,
-                                    rem commodi cum voluptatem quae reprehenderit repudiandae ea tempora incidunt ipsa,
-                                    quisquam animi perferendis eos eum modi! Tempora, earum.
-                                </p>
+                                <p>{product.description}</p>
                                 <div className={cx('single-product-form')}>
-                                    <form action="index.html">
+                                    {/* <form action="#">
                                         <input type="number" placeholder={0} />
-                                    </form>
-                                    <a href="cart.html" className={cx('cart-btn')}>
+                                    </form> */}
+                                    <button className={cx('cart-btn')} onClick={() => dispatch(addToCart(product))}>
                                         <i className="fas fa-shopping-cart" /> Add to Cart
-                                    </a>
+                                    </button>
                                     <p>
-                                        <strong>Categories: </strong>Fruits, Organic
+                                        <strong>Categories: </strong>
+                                        {/* {product.categories.join(', ')} */}
                                     </p>
                                 </div>
                                 <h4>Share:</h4>
@@ -72,4 +99,4 @@ function oneProduct() {
     );
 }
 
-export default oneProduct;
+export default OneProduct;

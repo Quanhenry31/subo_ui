@@ -64,10 +64,10 @@ function Footer() {
                         <div className={cx('col-lg-4')}>
                             <div className={cx('mb-4', 'footer-logo-wrap')}>
                                 {/* <a href="#" className={cx('footer-logo')}>
-                                    Furni<span>.</span>
+                                    SUPO<span>.</span>
                                 </a> */}
                                 <Link to={config.routes.home} className={cx('footer-logo')}>
-                                    Furni<span>.</span>
+                                    SUPO<span>.</span>
                                 </Link>
                             </div>
                             <p className={cx('mb-4')}>

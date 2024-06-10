@@ -1,31 +1,21 @@
 import React from 'react';
-import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import styles from './Header.modules.scss';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import config from '~/config';
-import {
-    faCartShopping,
-    faUserAlt,
-    faCircleQuestion,
-    faEarthAsia,
-    faGear,
-    faKeyboard,
-    faRightToBracket,
-    faUser,
-    faEllipsisVertical,
-} from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
+import { faEarthAsia, faGear, faRightToBracket, faUser, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 
 import Button from '~/components/Button';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import images from '~/assets/images';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import Image from '~/components/Image';
 import Menu from '~/components/Popper/Menu';
-// import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
+
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
@@ -52,125 +42,262 @@ const MENU_ITEMS = [
 
 function Header() {
     const location = useLocation();
-    const nameh1 = () => {
+    const ChangeHeader = () => {
         if (location.pathname === '/') {
             return (
-                <div className={cx('intro-excerpt')}>
-                    <h1>
-                        Modern Interior <span className={cx('d-block')}>Design Studio</span>
-                    </h1>
-                    <p className={cx('mb-4')}>
-                        Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit
-                        imperdiet dolor tempor tristique.
-                    </p>
-                    <p>
-                        {/* <a href="" className={cx('btn', 'btn-secondary', 'me-2')}></a> */}
-                        <Button primary className={cx('btn', 'btn-secondary', 'me-2')}>
-                            {' '}
-                            Shop Now
-                        </Button>
-                        {/* <a href="#" className={cx('btn', 'btn-white-outline')}>
-                            Explore
-                        </a> */}
-                        <Button outline className={cx('btn', 'btn-white-outline')}>
-                            {' '}
-                            Explore
-                        </Button>
-                    </p>
+                <div className={cx('hero')}>
+                    <div className={cx('container')}>
+                        <div className={cx('row', 'justify-content-between')}>
+                            <div className={cx('col-lg-5')}>
+                                <div className={cx('intro-excerpt')}>
+                                    <h1>
+                                        Modern Interior <span className={cx('d-block')}>Design Studio</span>
+                                    </h1>
+                                    <p className={cx('mb-4')}>
+                                        Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
+                                        vulputate velit imperdiet dolor tempor tristique.
+                                    </p>
+                                    <p>
+                                        {/* <a href="" className={cx('btn', 'btn-secondary', 'me-2')}></a> */}
+                                        <Button primary className={cx('btn', 'btn-secondary', 'me-2')}>
+                                            {' '}
+                                            Shop Now
+                                        </Button>
+                                        {/* <a href="#" className={cx('btn', 'btn-white-outline')}>
+                Explore
+            </a> */}
+                                        <Button outline className={cx('btn', 'btn-white-outline')}>
+                                            {' '}
+                                            Explore
+                                        </Button>
+                                    </p>
+                                </div>
+                            </div>
+                            <div className={cx('col-lg-7')}>
+                                <div className={cx('hero-img-wrap')}>
+                                    <img
+                                        src="https://themewagon.github.io/furni/images/couch.png"
+                                        className={cx('img-fluid')}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             );
         }
         if (location.pathname === '/shop') {
             return (
-                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
-                    <h1>
-                        <span className={cx('d-block')}>Shop</span>
-                    </h1>
-                    <p className={cx('mb-4')}></p>
+                <div className={cx('hero')}>
+                    <div className={cx('container')}>
+                        <div className={cx('row', 'justify-content-between')}>
+                            <div className={cx('col-lg-5')}>
+                                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
+                                    <h1>
+                                        <span className={cx('d-block')}>Shop</span>
+                                    </h1>
+                                    <p className={cx('mb-4')}></p>
+                                </div>
+                            </div>
+                            <div className={cx('col-lg-7')}>
+                                <div className={cx('hero-img-wrap')}>
+                                    <img
+                                        src="https://themewagon.github.io/furni/images/couch.png"
+                                        className={cx('img-fluid')}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             );
         }
         if (location.pathname === '/about') {
             return (
-                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
-                    <h1>
-                        <span className={cx('d-block')}>About</span>
-                    </h1>
-                    <p className={cx('mb-4')}></p>
+                <div className={cx('hero')}>
+                    <div className={cx('container')}>
+                        <div className={cx('row', 'justify-content-between')}>
+                            <div className={cx('col-lg-5')}>
+                                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
+                                    <h1>
+                                        <span className={cx('d-block')}>About</span>
+                                    </h1>
+                                    <p className={cx('mb-4')}></p>
+                                </div>
+                            </div>
+                            <div className={cx('col-lg-7')}>
+                                <div className={cx('hero-img-wrap')}>
+                                    <img
+                                        src="https://themewagon.github.io/furni/images/couch.png"
+                                        className={cx('img-fluid')}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             );
         }
         if (location.pathname === '/services') {
             return (
-                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
-                    <h1>
-                        <span className={cx('d-block')}>Services</span>
-                    </h1>
-                    <p className={cx('mb-4')}></p>
+                <div className={cx('hero')}>
+                    <div className={cx('container')}>
+                        <div className={cx('row', 'justify-content-between')}>
+                            <div className={cx('col-lg-5')}>
+                                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
+                                    <h1>
+                                        <span className={cx('d-block')}>Services</span>
+                                    </h1>
+                                    <p className={cx('mb-4')}></p>
+                                </div>
+                            </div>
+                            <div className={cx('col-lg-7')}>
+                                <div className={cx('hero-img-wrap')}>
+                                    <img
+                                        src="https://themewagon.github.io/furni/images/couch.png"
+                                        className={cx('img-fluid')}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             );
         }
         if (location.pathname === '/blog') {
             return (
-                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
-                    <h1>
-                        <span className={cx('d-block')}>Blog</span>
-                    </h1>
-                    <p className={cx('mb-4')}></p>
+                <div className={cx('hero')}>
+                    <div className={cx('container')}>
+                        <div className={cx('row', 'justify-content-between')}>
+                            <div className={cx('col-lg-5')}>
+                                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
+                                    <h1>
+                                        <span className={cx('d-block')}>Blog</span>
+                                    </h1>
+                                    <p className={cx('mb-4')}></p>
+                                </div>
+                            </div>
+                            <div className={cx('col-lg-7')}>
+                                <div className={cx('hero-img-wrap')}>
+                                    <img
+                                        src="https://themewagon.github.io/furni/images/couch.png"
+                                        className={cx('img-fluid')}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             );
         }
         if (location.pathname === '/contact') {
             return (
-                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
-                    <h1>
-                        <span className={cx('d-block')}>Contact</span>
-                    </h1>
-                    <p className={cx('mb-4')}></p>
-                </div>
-            );
-        }
-        if (location.pathname === '/login') {
-            return (
-                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
-                    <h1>
-                        <span className={cx('d-block')}>Login</span>
-                    </h1>
-                    <p className={cx('mb-4')}></p>
+                <div className={cx('hero')}>
+                    <div className={cx('container')}>
+                        <div className={cx('row', 'justify-content-between')}>
+                            <div className={cx('col-lg-5')}>
+                                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
+                                    <h1>
+                                        <span className={cx('d-block')}>Contact</span>
+                                    </h1>
+                                    <p className={cx('mb-4')}></p>
+                                </div>
+                            </div>
+                            <div className={cx('col-lg-7')}>
+                                <div className={cx('hero-img-wrap')}>
+                                    <img
+                                        src="https://themewagon.github.io/furni/images/couch.png"
+                                        className={cx('img-fluid')}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             );
         }
         if (location.pathname === '/cart') {
             return (
-                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
-                    <h1>
-                        <span className={cx('d-block')}>Cart</span>
-                    </h1>
-                    <p className={cx('mb-4')}></p>
+                <div className={cx('hero')}>
+                    <div className={cx('container')}>
+                        <div className={cx('row', 'justify-content-between')}>
+                            <div className={cx('col-lg-5')}>
+                                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
+                                    <h1>
+                                        <span className={cx('d-block')}>Cart</span>
+                                    </h1>
+                                    <p className={cx('mb-4')}></p>
+                                </div>
+                            </div>
+                            <div className={cx('col-lg-7')}>
+                                <div className={cx('hero-img-wrap')}>
+                                    <img
+                                        src="https://themewagon.github.io/furni/images/couch.png"
+                                        className={cx('img-fluid')}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             );
         }
         if (location.pathname === '/oneProduct') {
             return (
-                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
-                    <h1>
-                        <span className={cx('d-block')}>Product detail</span>
-                    </h1>
-                    <p className={cx('mb-4')}></p>
+                <div className={cx('hero')}>
+                    <div className={cx('container')}>
+                        <div className={cx('row', 'justify-content-between')}>
+                            <div className={cx('col-lg-5')}>
+                                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
+                                    <h1>
+                                        <span className={cx('d-block')}>Product Detail</span>
+                                    </h1>
+                                    <p className={cx('mb-4')}></p>
+                                </div>
+                            </div>
+                            <div className={cx('col-lg-7')}>
+                                <div className={cx('hero-img-wrap')}>
+                                    <img
+                                        src="https://themewagon.github.io/furni/images/couch.png"
+                                        className={cx('img-fluid')}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             );
         }
         if (location.pathname === '/checkOut') {
             return (
-                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
-                    <h1>
-                        <span className={cx('d-block')}>Payment</span>
-                    </h1>
-                    <p className={cx('mb-4')}></p>
+                <div className={cx('hero')}>
+                    <div className={cx('container')}>
+                        <div className={cx('row', 'justify-content-between')}>
+                            <div className={cx('col-lg-5')}>
+                                <div className={cx('intro-excerpt')} style={{ margin: '117px 32px' }}>
+                                    <h1>
+                                        <span className={cx('d-block')}>Payment</span>
+                                    </h1>
+                                    <p className={cx('mb-4')}></p>
+                                </div>
+                            </div>
+                            <div className={cx('col-lg-7')}>
+                                <div className={cx('hero-img-wrap')}>
+                                    <img
+                                        src="https://themewagon.github.io/furni/images/couch.png"
+                                        className={cx('img-fluid')}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             );
+        } else {
+            return <div></div>;
         }
     };
+
     const currentUser = true;
 
     //Handle logic
@@ -207,6 +334,19 @@ function Header() {
             separate: true,
         },
     ];
+    const navigate = useNavigate();
+    const handleDelete = () => {
+        axios
+            .get('http://localhost:5000/users/logout')
+            .then((res) => {
+                // location.reload(true);
+                // window.location.reload();
+                navigate('/login');
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
     return (
         <header>
             {/* navbar and menu */}
@@ -221,7 +361,7 @@ function Header() {
                             Furni<span>.</span>
                         </a> */}
                         <Link to={config.routes.home} className="navbar-brand">
-                            Furni<span>.</span>
+                            SUPO<span>.</span>
                         </Link>
                         <button
                             className="navbar-toggler"
@@ -333,27 +473,16 @@ function Header() {
                                         )}
                                     </Menu>
                                 </li>
+                                <button type="button" className={cx('btn btn-danger')} onClick={handleDelete}>
+                                    Logout
+                                </button>
                             </ul>
                         </div>
                     </div>
                 </nav>
                 {/* End Header/Navigation */}
                 {/* Start Hero Section */}
-                <div className={cx('hero')}>
-                    <div className={cx('container')}>
-                        <div className={cx('row', 'justify-content-between')}>
-                            <div className={cx('col-lg-5')}>{nameh1()}</div>
-                            <div className={cx('col-lg-7')}>
-                                <div className={cx('hero-img-wrap')}>
-                                    <img
-                                        src="https://themewagon.github.io/furni/images/couch.png"
-                                        className={cx('img-fluid')}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {ChangeHeader()}
                 {/* End Hero Section */}
             </>
         </header>

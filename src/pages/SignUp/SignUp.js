@@ -1,11 +1,34 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import config from '~/config';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 import styles from './SignUp.module.scss';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 function SignUp() {
+    const [values, setValues] = useState({
+        userName: '',
+        email: '',
+        password: '',
+    });
+    const navigate = useNavigate();
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        axios
+            .post('http://localhost:5000/users', values)
+            .then((res) => {
+                if (res.status === 200) {
+                    navigate('/login');
+                } else {
+                    alert('Error');
+                }
+            })
+            .then((err) => console.log(err));
+        console.log('oke');
+    };
+
     return (
         <>
             <section className="vh-100">
@@ -37,7 +60,7 @@ function SignUp() {
                                     'mt-xl-n5',
                                 )}
                             >
-                                <form className={cx('w-75')}>
+                                <form onSubmit={handleSubmit} className={cx('w-75')}>
                                     <h3 className={cx('fw-normal', 'mb-3', 'pb-3')} style={{ letterSpacing: 1 }}>
                                         Sign up
                                     </h3>
@@ -45,6 +68,8 @@ function SignUp() {
                                         <input
                                             type="text"
                                             id="form2Example18"
+                                            name="userName"
+                                            onChange={(e) => setValues({ ...values, userName: e.target.value })}
                                             className={cx('form-control', 'form-control-lg')}
                                         />
                                         <label className="form-label" htmlFor="form2Example18">
@@ -55,6 +80,8 @@ function SignUp() {
                                         <input
                                             type="email"
                                             id="form2Example18"
+                                            name="email"
+                                            onChange={(e) => setValues({ ...values, email: e.target.value })}
                                             className={cx('form-control', 'form-control-lg')}
                                         />
                                         <label className="form-label" htmlFor="form2Example18">
@@ -65,6 +92,8 @@ function SignUp() {
                                         <input
                                             type="password"
                                             id="form2Example28"
+                                            name="password"
+                                            onChange={(e) => setValues({ ...values, password: e.target.value })}
                                             className={cx('form-control', 'form-control-lg')}
                                         />
                                         <label className="form-label" htmlFor="form2Example28">
@@ -72,7 +101,7 @@ function SignUp() {
                                         </label>
                                     </div>
                                     <div className={cx('pt-1', 'mb-4')}>
-                                        <button className={cx('btn', 'btn-info', 'btn-lg', 'btn-block')} type="button">
+                                        <button type="submit" className={cx('btn', 'btn-info', 'btn-lg', 'btn-block')}>
                                             Register
                                         </button>
                                     </div>

@@ -1,6 +1,6 @@
 import config from '~/config';
 
-//Layout
+// Layout
 import layouts, { HeaderOnly } from '~/layouts';
 
 import Home from '~/pages/Home';
@@ -13,7 +13,7 @@ import Login from '~/pages/Login';
 import Signup from '~/pages/SignUp';
 import Cart from '~/pages/Cart';
 import OneProduct from '~/pages/oneProduct';
-import checkOut from '~/pages/CheckOut';
+import CheckOut from '~/pages/CheckOut';
 
 const publicRoutes = [
     { path: config.routes.home, component: Home },
@@ -24,11 +24,10 @@ const publicRoutes = [
     { path: config.routes.contact, component: Contact },
     { path: config.routes.login, component: Login, layout: null },
     { path: config.routes.signup, component: Signup, layout: null },
-    { path: config.routes.cart, component: Cart },
     { path: config.routes.oneProduct, component: OneProduct },
-    { path: config.routes.checkOut, component: checkOut },
+    { path: config.routes.cart, component: Cart },
 ];
 
-const privateRoutes = [];
+const privateRoutes = [{ path: config.routes.checkOut, component: CheckOut }];
 
 export { publicRoutes, privateRoutes };

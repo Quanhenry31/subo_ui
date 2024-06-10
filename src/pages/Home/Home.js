@@ -3,8 +3,13 @@ import styles from './Home.module.scss';
 import classNames from 'classnames/bind';
 import ListProduct from '~/components/ListProduct';
 import productFake from '../../data/products.json';
+import axios from 'axios';
+import React, { useEffect, useState, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import config from '~/config';
-import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { AuthContext } from '~/AuthContext';
 
 import Testimonial from '~/components/Testimonial';
 import Services_con from '~/components/Services_con';
@@ -13,14 +18,30 @@ import Blog_component from '~/components/Blog_component';
 const cx = classNames.bind(styles);
 
 function Home() {
-    return (
-        // product
-        // <ListProduct data={productFake} />
-        //seevices
+    const [listOfPosts, setListOfPosts] = useState([]);
+    const dispatch = useDispatch();
+    const cart = useSelector((state) => state.cart);
+    const getTotalQuantity = () => {
+        let total = 0;
+        cart.forEach((item) => {
+            total += item.quantity;
+        });
+        return total;
+    };
 
+    useEffect(() => {
+        axios.get('http://localhost:5000/products').then((response) => {
+            setListOfPosts(response.data.data);
+        });
+    }, []);
+    const { user } = useContext(AuthContext);
+
+    return (
         <>
             {/* Start Product Section */}
             <div className={cx('product-section')}>
+                {' '}
+                {user && user.userName}
                 <div className={cx('container')}>
                     <div className={cx('row')}>
                         {/* Start Column 1 */}
@@ -32,8 +53,8 @@ function Home() {
                             </p>
                             <p>
                                 {/* <a href="shop.html" className={cx('btn')}>
-                                    Explore
-                                </a> */}
+                            Explore
+                        </a> */}
                                 <Button outline className={cx('btn')}>
                                     {' '}
                                     Explore
@@ -42,9 +63,7 @@ function Home() {
                         </div>
                         {/* End Column 1 */}
                         {/* Start Column 2 */}
-
-                        <ListProduct data={productFake} />
-
+                        <ListProduct data={listOfPosts} />
                         {/* End Column 2 */}
                     </div>
                 </div>
@@ -129,8 +148,8 @@ function Home() {
                             </ul>
                             <p>
                                 {/* <a href="#" className={cx('btn')}>
-                                    Explore
-                                </a> */}
+                            Explore
+                        </a> */}
                                 <Button outline className={cx('btn')}>
                                     {' '}
                                     Explore

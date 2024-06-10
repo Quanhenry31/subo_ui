@@ -3,84 +3,133 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './CheckOut.module.scss';
 import classNames from 'classnames/bind';
 import { Visa } from '~/layouts/components/Icons';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
+import { useContext, useState } from 'react';
+import { AuthContext } from '~/AuthContext';
+
 const cx = classNames.bind(styles);
 
 function CheckOut() {
+    const cart = useSelector((state) => state.cart);
+    const [inputValue, setInputValue] = useState({
+        firstname: '',
+        pay_method: '',
+        information: '',
+    });
+
+    const { user } = useContext(AuthContext);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setInputValue({
+            ...inputValue,
+            [name]: value,
+        });
+    };
+    console.log(inputValue);
+
+    const handleCreate = () => {
+        const now = new Date();
+        const twoDaysLater = new Date(now);
+        twoDaysLater.setDate(now.getDate() + 2);
+
+        if (cart.length > 0) {
+            const orderDetailData = cart.map((item) => ({
+                productID: item.id,
+                quantity: item.quantity || 1,
+                allMoney: item.price * (item.quantity || 1),
+            }));
+
+            const allPrice = orderDetailData.reduce((total, item) => total + item.allMoney, 0);
+
+            const requestData = {
+                orderData: {
+                    userID: user.id,
+                    orderDate: now.toISOString(),
+                    address: user.address,
+                    dateOk: twoDaysLater.toISOString(),
+                    time: twoDaysLater.toISOString(),
+                    allPrice: allPrice,
+                    status: 'Pending',
+                },
+                orderDetailData: orderDetailData, // Always send as an array
+                paymentData: {
+                    name: inputValue.firstname,
+                    paymentDate: new Date(),
+                    amount: inputValue.information,
+                    paymentMethod: inputValue.pay_method,
+                },
+            };
+
+            axios
+                .post('http://localhost:5000/orders/ok', requestData)
+                .then((response) => {
+                    console.log('API Response:', response.data);
+                })
+                .catch((error) => {
+                    console.error('API Error:', error);
+                });
+        } else {
+            console.error('Cart is empty');
+        }
+    };
+
     return (
         <div className={cx('main_checkout')}>
             <div className={cx('row')}>
                 <div className={cx('col-75')}>
                     <div className={cx('container')}>
-                        <form action="/action_page.php">
-                            <div className={cx('row')}>
-                                <div className={cx('col-50')}>
-                                    <h3>Billing Address</h3>
-                                    <label htmlFor="fname">
-                                        <i className="fa fa-user" /> Full Name
-                                    </label>
-                                    <input type="text" id="fname" name="firstname" placeholder="John M. Doe" />
-                                    <label htmlFor="email">
-                                        <i className="fa fa-envelope" /> Email
-                                    </label>
-                                    <input type="text" id="email" name="email" placeholder="john@example.com" />
-                                    <label htmlFor="adr">
-                                        <i className="fa fa-address-card-o" /> Address
-                                    </label>
-                                    <input type="text" id="adr" name="address" placeholder="542 W. 15th Street" />
-                                    <label htmlFor="city">
-                                        <i className="fa fa-institution" /> City
-                                    </label>
-                                    <input type="text" id="city" name="city" placeholder="New York" />
-                                    <div className={cx('row')}>
-                                        <div className={cx('col-50')}>
-                                            <label htmlFor="state">State</label>
-                                            <input type="text" id="state" name="state" placeholder="NY" />
-                                        </div>
-                                        <div className={cx('col-50')}>
-                                            <label htmlFor="zip">Zip</label>
-                                            <input type="text" id="zip" name="zip" placeholder={10001} />
-                                        </div>
-                                    </div>
+                        <div className={cx('row')}>
+                            <div className={cx('col-50')}>
+                                <h3>Billing Address</h3>
+                                <div className={cx('icon-container')}>
+                                    <i class="fa-brands fa-cc-visa" style={{ color: 'navy', margin: '5px' }}></i>
+                                    <i class="fa-brands fa-cc-amex" style={{ color: 'blue', margin: '5px' }}></i>
+                                    <i class="fa-brands fa-cc-mastercard" style={{ color: 'red', margin: '5px' }}></i>
+                                    <i class="fa-brands fa-cc-discover" style={{ color: 'orange', margin: '5px' }}></i>
                                 </div>
-                                <div className={cx('col-50')}>
-                                    <h3>Payment</h3>
-                                    <label htmlFor="fname">Accepted Cards</label>
-                                    <div className={cx('icon-container')}>
-                                        <i class="fa-brands fa-cc-visa" style={{ color: 'navy', margin: '5px' }}></i>
-                                        <i class="fa-brands fa-cc-amex" style={{ color: 'blue', margin: '5px' }}></i>
-                                        <i
-                                            class="fa-brands fa-cc-mastercard"
-                                            style={{ color: 'red', margin: '5px' }}
-                                        ></i>
-                                        <i
-                                            class="fa-brands fa-cc-discover"
-                                            style={{ color: 'orange', margin: '5px' }}
-                                        ></i>
-                                    </div>
-                                    <label htmlFor="cname">Name on Card</label>
-                                    <input type="text" id="cname" name="cardname" placeholder="John More Doe" />
-                                    <label htmlFor="ccnum">Credit card number</label>
-                                    <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" />
-                                    <label htmlFor="expmonth">Exp Month</label>
-                                    <input type="text" id="expmonth" name="expmonth" placeholder="September" />
-                                    <div className={cx('row')}>
-                                        <div className={cx('col-50')}>
-                                            <label htmlFor="expyear">Exp Year</label>
-                                            <input type="text" id="expyear" name="expyear" placeholder={2018} />
-                                        </div>
-                                        <div className={cx('col-50')}>
-                                            <label htmlFor="cvv">CVV</label>
-                                            <input type="text" id="cvv" name="cvv" placeholder={352} />
-                                        </div>
-                                    </div>
-                                </div>
+                                <label htmlFor="fname">
+                                    <i className="fa fa-user" /> Full Name
+                                </label>
+                                <input
+                                    value={inputValue.firstname}
+                                    onChange={handleChange}
+                                    type="text"
+                                    id="fname"
+                                    name="firstname"
+                                    placeholder="John M. Doe"
+                                />
+
+                                <label htmlFor="email">
+                                    <i className="fa fa-envelope" /> Payment_Method
+                                </label>
+                                <input
+                                    value={inputValue.pay_method}
+                                    onChange={handleChange}
+                                    type="text"
+                                    id="pmethod"
+                                    name="pay_method"
+                                    placeholder="MB"
+                                />
+
+                                <label htmlFor="adr">
+                                    <i className="fa fa-address-card-o" /> Sent
+                                </label>
+                                <input
+                                    value={inputValue.information}
+                                    onChange={handleChange}
+                                    type="text"
+                                    id="adr"
+                                    name="information"
+                                    placeholder="information"
+                                />
                             </div>
-                            <label>
-                                <input type="checkbox" defaultChecked="checked" name="sameadr" /> Shipping address same
-                                as billing
-                            </label>
-                            <input type="submit" defaultValue="Continue to checkout" className={cx('btn')} />
-                        </form>
+                        </div>
+
+                        <button className={cx('btn_checkout')} onClick={handleCreate}>
+                            <input type="submit" className={cx('btn')} />
+                        </button>
                     </div>
                 </div>
                 <div className={cx('col-25')}>

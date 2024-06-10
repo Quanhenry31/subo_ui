@@ -1,11 +1,46 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import config from '~/config';
+import React, { useState } from 'react';
+import axios from 'axios';
+
 import styles from './Login.module.scss';
 import classNames from 'classnames/bind';
 import routes from '~/config/routes';
 const cx = classNames.bind(styles);
 
 function Login() {
+    const [values, setValues] = useState({
+        userName: '',
+        email: '',
+        password: '',
+    });
+    const navigate = useNavigate();
+    axios.defaults.withCredentials = true;
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        axios
+            .post('http://localhost:5000/users/login', values)
+            .then((res) => {
+                if (res.status === 200) {
+                    navigate('/');
+                    window.location.reload();
+                } else {
+                    alert('Error');
+                }
+            })
+            // .then((err) => {
+            //     console.log(err);
+            // });
+            .catch((error) => {
+                if (error.response.status === 401) {
+                    alert('Password not matched'); // Display message locally
+                } else {
+                    console.error(error);
+                    alert('Error occurred during login');
+                }
+            });
+    };
+
     return (
         <>
             <section className="vh-100">
@@ -36,7 +71,7 @@ function Login() {
                                     'mt-xl-n5',
                                 )}
                             >
-                                <form className={cx('w-75')}>
+                                <form onSubmit={handleSubmit} className={cx('w-75')}>
                                     <h3 className={cx('fw-normal', 'mb-3', 'pb-3')} style={{ letterSpacing: 1 }}>
                                         Log in
                                     </h3>
@@ -44,7 +79,9 @@ function Login() {
                                         <input
                                             type="email"
                                             id="form2Example18"
+                                            name="email"
                                             className={cx('form-control', 'form-control-lg')}
+                                            onChange={(e) => setValues({ ...values, email: e.target.value })}
                                         />
                                         <label className="form-label" htmlFor="form2Example18">
                                             Email address
@@ -54,14 +91,16 @@ function Login() {
                                         <input
                                             type="password"
                                             id="form2Example28"
+                                            name="password"
                                             className={cx('form-control', 'form-control-lg')}
+                                            onChange={(e) => setValues({ ...values, password: e.target.value })}
                                         />
                                         <label className="form-label" htmlFor="form2Example28">
                                             Password
                                         </label>
                                     </div>
                                     <div className={cx('pt-1', 'mb-4')}>
-                                        <button className={cx('btn', 'btn-info', 'btn-lg', 'btn-block')} type="button">
+                                        <button className={cx('btn', 'btn-info', 'btn-lg', 'btn-block')} type="submit">
                                             Login
                                         </button>
                                     </div>
