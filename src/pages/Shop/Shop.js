@@ -29,12 +29,10 @@ function Shop() {
     const handleSearch = () => {
         if (debounceValue) {
             console.log(debounceValue);
+            console.log('oke');
             axios
-                .get('http://localhost:5000/orders/search?q=' + debounceValue)
+                .get('http://localhost:5000/products/search?q=' + debounceValue)
                 .then((response) => {
-                    if (response.data.data.length === 0) {
-                        console.warn('No search results found');
-                    }
                     setListOfPosts(response.data.data);
                     console.log(response);
                 })
