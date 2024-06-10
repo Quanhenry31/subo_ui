@@ -462,7 +462,7 @@ function Header() {
                                         {currentUser ? (
                                             <Image
                                                 className={cx('user-avatar')}
-                                                src="https://scontent-hkg1-1.xx.fbcdn.net/v/t39.30808-1/279861878_1636305450077264_1549291109211245035_n.jpg?stp=cp0_dst-jpg_p60x60&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=r0pnRX5BInMQ7kNvgFK3rTm&_nc_oc=AdgwaFSjZL7hlKdEm96GTldUixB6ZaNvPz9IqoO1RHOUbd_QvEh72GSyY-0slVy9tfM&_nc_ht=scontent-hkg1-1.xx&oh=00_AfDfOYppTSLa4cchUuKAWQI-0EXqVqfWe1voU2uzZJkOUw&oe=662CF425"
+                                                src="https://themewagon.github.io/furni/favicon.png"
                                                 alt="avatar"
                                                 fallback="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/d80d1f6d50cd3b37510964b21f2fb571~c5_100x100.jpeg?lk3s=a5d48078&x-expires=1709733600&x-signature=JqERa95Mhczw9L7N93MLgkhx3UE%3D"
                                             />
@@ -473,7 +473,11 @@ function Header() {
                                         )}
                                     </Menu>
                                 </li>
-                                <button type="button" className={cx('btn btn-danger')} onClick={handleDelete}>
+                                <button
+                                    type="button"
+                                    className={cx('btn btn-danger btn_out_header')}
+                                    onClick={handleDelete}
+                                >
                                     Logout
                                 </button>
                             </ul>

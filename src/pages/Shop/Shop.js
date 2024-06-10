@@ -52,7 +52,7 @@ function Shop() {
 
     return (
         <div>
-            <div className="search_shop">
+            <div className={cx('search_shop')}>
                 <Search value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
             </div>
             <div className={cx('untree_co-section', 'product-section', 'before-footer-section')}>

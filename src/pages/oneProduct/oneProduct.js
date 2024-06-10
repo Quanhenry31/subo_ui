@@ -51,7 +51,7 @@ function OneProduct() {
                             <div className={cx('single-product-content')}>
                                 <h3>{product.name}</h3>
                                 <p className={cx('single-product-pricing')}>
-                                    <span>Per Kg</span> ${product.price}
+                                    <span>{product.modelCode}</span> ${product.price}
                                 </p>
                                 <p>{product.description}</p>
                                 <div className={cx('single-product-form')}>
