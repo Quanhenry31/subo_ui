@@ -18,7 +18,6 @@ function OneProduct() {
             .get(`http://localhost:5000/products/products/${id}`)
             .then((response) => {
                 setProduct(response.data.data);
-                console.log(response);
                 console.log(setProduct);
                 setLoading(false);
             })
