@@ -21,10 +21,10 @@ function Blog() {
                         </h3>
                         <div className={cx('meta')}>
                             <span>
-                                by <a href="#">Kristin Watson</a>
+                                by <a href="#">Kristin Watson </a>
                             </span>
                             <span>
-                                on <a href="#">Dec 19, 2021</a>
+                                on <a href="#">Dec 19, 2024</a>
                             </span>
                         </div>
                     </div>

@@ -76,8 +76,9 @@ function Home() {
                         <div className={cx('col-lg-6')}>
                             <h2 className={cx('section-title')}>Why Choose Us</h2>
                             <p>
-                                Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate
-                                velit imperdiet dolor tempor tristique.
+                                Tại SUBO, chúng tôi tự hào về việc chỉ sử dụng những vật liệu tốt nhất và tay nghề
+                                chuyên môn để tạo ra đồ nội thất có tuổi thọ lâu dài. Các nghệ nhân tận tâm của chúng
+                                tôi đảm bảo mọi tác phẩm đều đáp ứng các tiêu chuẩn chất lượng cao của chúng tôi.
                             </p>
                             <div className={cx('row', 'my-5')}>
                                 <div className={cx('col-6', 'col-md-6')}>
@@ -136,15 +137,16 @@ function Home() {
                         <div className={cx('col-lg-5', 'ps-lg-5')}>
                             <h2 className={cx('section-title', 'mb-4')}>We Help You Make Modern Interior Design</h2>
                             <p>
-                                Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus
-                                malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor
-                                tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada
+                                Tại SUPO, chúng tôi hiểu rõ các sắc thái của thiết kế nội thất hiện đại. Đội ngũ thiết
+                                kế giàu kinh nghiệm của chúng tôi luôn tận tâm giúp bạn tạo ra một ngôi nhà hiện đại và
+                                đầy phong cách, phản ánh sở thích độc đáo của bạn. Cho dù bạn thích phong cách tối giản,
+                                công nghiệp hay Scandinavia, chúng tôi đều có chuyên môn để hướng dẫn bạn.
                             </p>
                             <ul className={cx('list-unstyled', 'custom-list', 'my-4')}>
-                                <li>Donec vitae odio quis nisl dapibus malesuada</li>
-                                <li>Donec vitae odio quis nisl dapibus malesuada</li>
-                                <li>Donec vitae odio quis nisl dapibus malesuada</li>
-                                <li>Donec vitae odio quis nisl dapibus malesuada</li>
+                                <li>Giá tốt</li>
+                                <li>Đãi Ngộ</li>
+                                <li>Chất lượng</li>
+                                <li>Thái độ</li>
                             </ul>
                             <p>
                                 {/* <a href="#" className={cx('btn')}>
@@ -175,7 +177,10 @@ function Home() {
                                 </div>
                                 <div className={cx('pt-3')}>
                                     <h3>Nordic Chair</h3>
-                                    <p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio</p>
+                                    <p>
+                                        Ghế xoay NORDIC Leisure Chair vừa là ghế thư giãn, vừa có thể là chiếc ghế làm
+                                        việc tiện lợi.
+                                    </p>
                                     <p>
                                         <a href="#">Read More</a>
                                     </p>
@@ -193,7 +198,10 @@ function Home() {
                                 </div>
                                 <div className={cx('pt-3')}>
                                     <h3>Kruzo Aero Chair</h3>
-                                    <p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio</p>
+                                    <p>
+                                        Ghế xoay NORDIC Leisure Chair vừa là ghế thư giãn, vừa có thể là chiếc ghế làm
+                                        việc tiện lợi.
+                                    </p>
                                     <p>
                                         <a href="#">Read More</a>
                                     </p>
@@ -211,7 +219,10 @@ function Home() {
                                 </div>
                                 <div className={cx('pt-3')}>
                                     <h3>Ergonomic Chair</h3>
-                                    <p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio</p>
+                                    <p>
+                                        Ghế xoay NORDIC Leisure Chair vừa là ghế thư giãn, vừa có thể là chiếc ghế làm
+                                        việc tiện lợi.
+                                    </p>
                                     <p>
                                         <a href="#">Read More</a>
                                     </p>

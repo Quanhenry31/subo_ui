@@ -9,7 +9,11 @@ function Services_con() {
                 <img src="https://themewagon.github.io/furni/images/bag.svg" alt="Image" className={cx('img-fluid')} />
             </div>
             <h3>Easy to Shop</h3>
-            <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+            <p>
+                Bộ sưu tập của chúng tôi có các thiết kế độc quyền mà bạn sẽ không tìm thấy ở bất kỳ nơi nào khác. Chúng
+                tôi cũng cung cấp các tùy chọn đồ nội thất tùy chỉnh để phù hợp hoàn hảo với phong cách và nhu cầu của
+                bạn.
+            </p>
         </div>
     );
 }

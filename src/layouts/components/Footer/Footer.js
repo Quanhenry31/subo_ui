@@ -71,9 +71,9 @@ function Footer() {
                                 </Link>
                             </div>
                             <p className={cx('mb-4')}>
-                                Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus
-                                malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor
-                                tristique. Pellentesque habitant
+                                Chào mừng bạn đến với SUPO, điểm đến lý tưởng cho mọi nhu cầu về nội thất của bạn. Chúng
+                                tôi tự hào mang đến cho khách hàng những sản phẩm nội thất hiện đại, chất lượng cao và
+                                dịch vụ khách hàng tuyệt vời.
                             </p>
                             <ul className={cx('list-unstyled', 'custom-social')}>
                                 <li>
@@ -167,7 +167,7 @@ function Footer() {
                                 <p className={cx('mb-2', 'text-center', 'text-lg-start')}>
                                     Copyright © . All Rights Reserved. — Designed with love by
                                     <a href="https://untree.co">Untree.co</a> Distributed By
-                                    <a hreff="https://themewagon.com">ThemeWagon</a>
+                                    <a href="https://themewagon.com">ThemeWagon</a>
                                 </p>
                             </div>
                             <div className={cx('col-lg-6', 'text-center', 'text-lg-end')}>

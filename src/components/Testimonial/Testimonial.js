@@ -37,13 +37,12 @@ function Testimonial() {
                                                             {' '}
                                                             <blockquote className={cx('mb-5')}>
                                                                 <p>
-                                                                    “Donec facilisis quam ut purus rutrum lobortis.
-                                                                    Donec vitae odio quis nisl dapibus malesuada. Nullam
-                                                                    ac aliquet velit. Aliquam vulputate velit imperdiet
-                                                                    dolor tempor tristique. Pellentesque habitant morbi
-                                                                    tristique senectus et netus et malesuada fames ac
-                                                                    turpis egestas. Integer convallis volutpat dui quis
-                                                                    scelerisque.”
+                                                                    “Tôi đang tìm kiếm các lựa chọn nội thất bền vững và
+                                                                    tìm thấy chính xác những gì tôi cần tại SUPO. Chất
+                                                                    liệu thân thiện với môi trường và thiết kế thời
+                                                                    trang của họ chính là thứ tôi đang tìm kiếm. Ngoài
+                                                                    ra, cam kết của họ về tính bền vững khiến tôi cảm
+                                                                    thấy hài lòng khi mua hàng.”
                                                                 </p>
                                                             </blockquote>
                                                             <div className={cx('author-info')}>
@@ -61,7 +60,9 @@ function Testimonial() {
                                                                         className={cx('img-fluid')}
                                                                     />
                                                                 </div>
-                                                                <h3 className={cx('font-weight-bold')}>Maria Jones</h3>
+                                                                <h3 className={cx('font-weight-bold')}>
+                                                                    Emily R. - Chicago, IL
+                                                                </h3>
                                                                 <span className={cx('position', 'd-block', 'mb-3')}>
                                                                     CEO, Co-Founder, XYZ Inc.
                                                                 </span>
@@ -73,13 +74,11 @@ function Testimonial() {
                                                             {' '}
                                                             <blockquote className={cx('mb-5')}>
                                                                 <p>
-                                                                    “Donec facilisis quam ut purus rutrum lobortis.
-                                                                    Donec vitae odio quis nisl dapibus malesuada. Nullam
-                                                                    ac aliquet velit. Aliquam vulputate velit imperdiet
-                                                                    dolor tempor tristique. Pellentesque habitant morbi
-                                                                    tristique senectus et netus et malesuada fames ac
-                                                                    turpis egestas. Integer convallis volutpat dui quis
-                                                                    scelerisque.”
+                                                                    “Từ thời điểm tôi truy cập trang web của họ, tôi đã
+                                                                    biết mình đang ở trong tình trạng tốt. Mô tả chi
+                                                                    tiết về sản phẩm và hình ảnh chất lượng cao giúp bạn
+                                                                    dễ dàng lựa chọn sản phẩm phù hợp. Bộ phòng ngủ của
+                                                                    tôi vừa đẹp vừa tiện dụng. Cảm ơn bạn, SUPO!”
                                                                 </p>
                                                             </blockquote>
                                                             <div className={cx('author-info')}>
@@ -97,7 +96,9 @@ function Testimonial() {
                                                                         className={cx('img-fluid')}
                                                                     />
                                                                 </div>
-                                                                <h3 className={cx('font-weight-bold')}>Maria Jones</h3>
+                                                                <h3 className={cx('font-weight-bold')}>
+                                                                    Phan Mạnh Quỳnh
+                                                                </h3>
                                                                 <span className={cx('position', 'd-block', 'mb-3')}>
                                                                     CEO, Co-Founder, XYZ Inc.
                                                                 </span>
@@ -109,13 +110,11 @@ function Testimonial() {
                                                             {' '}
                                                             <blockquote className={cx('mb-5')}>
                                                                 <p>
-                                                                    “Donec facilisis quam ut purus rutrum lobortis.
-                                                                    Donec vitae odio quis nisl dapibus malesuada. Nullam
-                                                                    ac aliquet velit. Aliquam vulputate velit imperdiet
-                                                                    dolor tempor tristique. Pellentesque habitant morbi
-                                                                    tristique senectus et netus et malesuada fames ac
-                                                                    turpis egestas. Integer convallis volutpat dui quis
-                                                                    scelerisque.”
+                                                                    “Các tùy chọn tùy chỉnh tại SUPO thật tuyệt vời. Tôi
+                                                                    đã có thể chọn loại vải và lớp hoàn thiện hoàn hảo
+                                                                    cho chiếc ghế bành mới của mình. Bây giờ nó là nơi
+                                                                    yêu thích của tôi để thư giãn ở nhà. Toàn bộ quá
+                                                                    trình diễn ra suôn sẻ và thú vị.”
                                                                 </p>
                                                             </blockquote>
                                                             <div className={cx('author-info')}>
@@ -133,7 +132,9 @@ function Testimonial() {
                                                                         className={cx('img-fluid')}
                                                                     />
                                                                 </div>
-                                                                <h3 className={cx('font-weight-bold')}>Maria Jones</h3>
+                                                                <h3 className={cx('font-weight-bold')}>
+                                                                    Shark - Quân ca
+                                                                </h3>
                                                                 <span className={cx('position', 'd-block', 'mb-3')}>
                                                                     CEO, Co-Founder, XYZ Inc.
                                                                 </span>
@@ -145,13 +146,11 @@ function Testimonial() {
                                                             {' '}
                                                             <blockquote className={cx('mb-5')}>
                                                                 <p>
-                                                                    “Donec facilisis quam ut purus rutrum lobortis.
-                                                                    Donec vitae odio quis nisl dapibus malesuada. Nullam
-                                                                    ac aliquet velit. Aliquam vulputate velit imperdiet
-                                                                    dolor tempor tristique. Pellentesque habitant morbi
-                                                                    tristique senectus et netus et malesuada fames ac
-                                                                    turpis egestas. Integer convallis volutpat dui quis
-                                                                    scelerisque.”
+                                                                    “I had a wonderful experience with SUPO. The
+                                                                    personalized design consultation helped me make the
+                                                                    best choices for my home office. The furniture is
+                                                                    stylish, comfortable, and durable. I couldn’t be
+                                                                    more pleased!”
                                                                 </p>
                                                             </blockquote>
                                                             <div className={cx('author-info')}>
@@ -169,7 +168,7 @@ function Testimonial() {
                                                                         className={cx('img-fluid')}
                                                                     />
                                                                 </div>
-                                                                <h3 className={cx('font-weight-bold')}>Maria Jones</h3>
+                                                                <h3 className={cx('font-weight-bold')}>Benzenma</h3>
                                                                 <span className={cx('position', 'd-block', 'mb-3')}>
                                                                     CEO, Co-Founder, XYZ Inc.
                                                                 </span>
@@ -181,13 +180,11 @@ function Testimonial() {
                                                             {' '}
                                                             <blockquote className={cx('mb-5')}>
                                                                 <p>
-                                                                    “Donec facilisis quam ut purus rutrum lobortis.
-                                                                    Donec vitae odio quis nisl dapibus malesuada. Nullam
-                                                                    ac aliquet velit. Aliquam vulputate velit imperdiet
-                                                                    dolor tempor tristique. Pellentesque habitant morbi
-                                                                    tristique senectus et netus et malesuada fames ac
-                                                                    turpis egestas. Integer convallis volutpat dui quis
-                                                                    scelerisque.”
+                                                                    “Tôi đã nhận được rất nhiều lời khen ngợi về chiếc
+                                                                    bàn cà phê mới của mình từ SUPO. Đó là một tác phẩm
+                                                                    độc đáo thực sự nổi bật trong phòng khách của tôi.
+                                                                    Chất lượng rất tuyệt vời và rõ ràng là đã phải bỏ ra
+                                                                    rất nhiều công sức để tạo ra nó.”
                                                                 </p>
                                                             </blockquote>
                                                             <div className={cx('author-info')}>
@@ -205,7 +202,7 @@ function Testimonial() {
                                                                         className={cx('img-fluid')}
                                                                     />
                                                                 </div>
-                                                                <h3 className={cx('font-weight-bold')}>Maria Jones</h3>
+                                                                <h3 className={cx('font-weight-bold')}>CR7</h3>
                                                                 <span className={cx('position', 'd-block', 'mb-3')}>
                                                                     CEO, Co-Founder, XYZ Inc.
                                                                 </span>
@@ -217,13 +214,11 @@ function Testimonial() {
                                                             {' '}
                                                             <blockquote className={cx('mb-5')}>
                                                                 <p>
-                                                                    “Donec facilisis quam ut purus rutrum lobortis.
-                                                                    Donec vitae odio quis nisl dapibus malesuada. Nullam
-                                                                    ac aliquet velit. Aliquam vulputate velit imperdiet
-                                                                    dolor tempor tristique. Pellentesque habitant morbi
-                                                                    tristique senectus et netus et malesuada fames ac
-                                                                    turpis egestas. Integer convallis volutpat dui quis
-                                                                    scelerisque.”
+                                                                    “Dịch vụ giao hàng và lắp ráp rất tuyệt vời. Đội ngũ
+                                                                    chuyên nghiệp và hiệu quả, đảm bảo mọi thứ được
+                                                                    thiết lập hoàn hảo. Phần mới của tôi trông tuyệt vời
+                                                                    và cực kỳ thoải mái. Tôi rất vui mừng với việc mua
+                                                                    hàng của mình!”
                                                                 </p>
                                                             </blockquote>
                                                             <div className={cx('author-info')}>
@@ -241,7 +236,7 @@ function Testimonial() {
                                                                         className={cx('img-fluid')}
                                                                     />
                                                                 </div>
-                                                                <h3 className={cx('font-weight-bold')}>Maria Jones</h3>
+                                                                <h3 className={cx('font-weight-bold')}>M10</h3>
                                                                 <span className={cx('position', 'd-block', 'mb-3')}>
                                                                     CEO, Co-Founder, XYZ Inc.
                                                                 </span>
