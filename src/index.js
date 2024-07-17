@@ -9,7 +9,8 @@ import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './components/GlobalStyles';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-// Import css files
+
+// Import css testortion  files
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 

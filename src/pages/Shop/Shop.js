@@ -69,8 +69,9 @@ function Shop() {
                                             alt={product.name}
                                         />
                                         <h3 className={cx('product-title')}>{product.name}</h3>
-                                        <strong className={cx('product-price')}>{`$ ${product.price}`}</strong>
+                                        <strong className={cx('product-price')}>{`${product.price} VND`}</strong>
                                     </Link>
+
                                     <button className={cx('icon-cross')} onClick={() => dispatch(addToCart(product))}>
                                         <img
                                             src="https://themewagon.github.io/furni/images/cross.svg"

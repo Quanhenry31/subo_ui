@@ -48,8 +48,9 @@ function Home() {
                         <div className={cx('col-md-12', 'col-lg-3', 'mb-5', 'mb-lg-0')}>
                             <h2 className={cx('mb-4', 'section-title')}>Crafted with excellent material.</h2>
                             <p className={cx('mb-4')}>
-                                Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate
-                                velit imperdiet dolor tempor tristique.
+                                Tại SUBO, chúng tôi tự hào về việc chỉ sử dụng những vật liệu tốt nhất và tay nghề
+                                chuyên môn để tạo ra đồ nội thất có tuổi thọ lâu dài. Các nghệ nhân tận tâm của chúng
+                                tôi đảm bảo mọi tác phẩm đều đáp ứng các tiêu chuẩn chất lượng cao của chúng tôi.
                             </p>
                             <p>
                                 {/* <a href="shop.html" className={cx('btn')}>

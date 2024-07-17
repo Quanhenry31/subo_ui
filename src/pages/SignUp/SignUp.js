@@ -43,7 +43,7 @@ function SignUp() {
                                 <span className={cx('h1', 'fw-bold', 'mb-0')}>
                                     {' '}
                                     <Link to={config.routes.home} className={cx('footer-logo')}>
-                                        Furni<span>.</span>
+                                        SUBO<span>.</span>
                                     </Link>
                                 </span>
                             </div>

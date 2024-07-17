@@ -14,6 +14,8 @@ import Signup from '~/pages/SignUp';
 import Cart from '~/pages/Cart';
 import OneProduct from '~/pages/oneProduct';
 import CheckOut from '~/pages/CheckOut';
+import Order from '~/pages/Order';
+import Invoice from '~/pages/Invoice';
 
 const publicRoutes = [
     { path: config.routes.home, component: Home },
@@ -26,6 +28,8 @@ const publicRoutes = [
     { path: config.routes.signup, component: Signup, layout: null },
     { path: config.routes.oneProduct, component: OneProduct },
     { path: config.routes.cart, component: Cart },
+    { path: config.routes.order, component: Order },
+    { path: config.routes.invoice, component: Invoice, layout: null },
 ];
 
 const privateRoutes = [{ path: config.routes.checkOut, component: CheckOut }];

@@ -10,7 +10,8 @@ const routes = {
     cart: '/cart',
     oneProduct: '/products/:id',
     checkOut: '/checkOut',
-
+    order: '/order',
+    invoice: '/:id/details',
     // admin: '/admin',
 };
 

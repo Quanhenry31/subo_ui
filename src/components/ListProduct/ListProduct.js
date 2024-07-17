@@ -17,7 +17,7 @@ function ListProduct({ data }) {
                         <Link to={`/products/${data.id}`}>
                             <img src={data.image} className={cx('img-fluid', 'product-thumbnail')} />
                             <h3 className={cx('product-title')}>{data.name}</h3>
-                            <strong className={cx('product-price')}>{`$ ${data.price}`}</strong>
+                            <strong className={cx('product-price')}>{`${data.price} VND`}</strong>
                         </Link>
                         <button className={cx('icon-cross')} onClick={() => dispatch(addToCart(data))}>
                             <img

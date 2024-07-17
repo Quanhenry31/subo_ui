@@ -1,16 +1,18 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Navigate } from 'react-router-dom';
 
 import styles from './CheckOut.module.scss';
 import classNames from 'classnames/bind';
 import { Visa } from '~/layouts/components/Icons';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '~/AuthContext';
 
 const cx = classNames.bind(styles);
 
 function CheckOut() {
+    const [shouldRedirect, setShouldRedirect] = useState(false);
     const cart = useSelector((state) => state.cart);
     const [inputValue, setInputValue] = useState({
         firstname: '',
@@ -66,6 +68,7 @@ function CheckOut() {
                 .post('http://localhost:5000/orders/ok', requestData)
                 .then((response) => {
                     console.log('API Response:', response.data);
+                    setShouldRedirect(true);
                 })
                 .catch((error) => {
                     console.error('API Error:', error);
@@ -74,6 +77,9 @@ function CheckOut() {
             console.error('Cart is empty');
         }
     };
+    if (shouldRedirect) {
+        return <Navigate to="/" />;
+    }
 
     return (
         <div className={cx('main_checkout')}>

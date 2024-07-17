@@ -5,7 +5,14 @@ import styles from './Header.modules.scss';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import config from '~/config';
 import axios from 'axios';
-import { faEarthAsia, faGear, faRightToBracket, faUser, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import {
+    faEarthAsia,
+    faGear,
+    faRightToBracket,
+    faUser,
+    faEllipsisVertical,
+    faTruck,
+} from '@fortawesome/free-solid-svg-icons';
 import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 
 import Button from '~/components/Button';
@@ -15,6 +22,7 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import Image from '~/components/Image';
 import Menu from '~/components/Popper/Menu';
+import { useSelector } from 'react-redux';
 
 const cx = classNames.bind(styles);
 
@@ -41,6 +49,14 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
+    const cart = useSelector((state) => state.cart);
+    const getTotalQuantity = () => {
+        let total = 0;
+        cart.forEach((item) => {
+            total += item.quantity;
+        });
+        return total;
+    };
     const location = useLocation();
     const ChangeHeader = () => {
         if (location.pathname === '/') {
@@ -54,8 +70,10 @@ function Header() {
                                         Modern Interior <span className={cx('d-block')}>Design Studio</span>
                                     </h1>
                                     <p className={cx('mb-4')}>
-                                        Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
-                                        vulputate velit imperdiet dolor tempor tristique.
+                                        Tại SUBO, chúng tôi tự hào về việc chỉ sử dụng những vật liệu tốt nhất và tay
+                                        nghề chuyên môn để tạo ra đồ nội thất có tuổi thọ lâu dài. Các nghệ nhân tận tâm
+                                        của chúng tôi đảm bảo mọi tác phẩm đều đáp ứng các tiêu chuẩn chất lượng cao của
+                                        chúng tôi.
                                     </p>
                                     <p>
                                         {/* <a href="" className={cx('btn', 'btn-secondary', 'me-2')}></a> */}
@@ -454,6 +472,21 @@ function Header() {
                                     >
                                         <span>
                                             <img src="https://themewagon.github.io/furni/images/cart.svg" />
+                                            {getTotalQuantity() || 0}
+                                        </span>
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink
+                                        to={config.routes.order}
+                                        className={(nav) =>
+                                            cx('nav-link nav-item icon-order', {
+                                                active: nav.isActive,
+                                            })
+                                        }
+                                    >
+                                        <span>
+                                            <FontAwesomeIcon icon={faTruck} />
                                         </span>
                                     </NavLink>
                                 </li>
