@@ -3,35 +3,37 @@ import config from '~/config';
 // Layout
 import layouts, { HeaderOnly } from '~/layouts';
 
-import Home from '~/pages/Home';
-import Shop from '~/pages/Shop';
-import About from '~/pages/About';
-import Services from '~/pages/Service';
-import Blog from '~/pages/Blog';
-import Contact from '~/pages/Contact';
-import Login from '~/pages/Login';
-import Signup from '~/pages/SignUp';
+import BlogDetail from '~/pages/BlogDetail';
+import Blogs from '~/pages/Blogs';
 import Cart from '~/pages/Cart';
-import OneProduct from '~/pages/oneProduct';
-import CheckOut from '~/pages/CheckOut';
-import Order from '~/pages/Order';
+import Category from '~/pages/Category';
+import Detail from '~/pages/Detail';
+import Home from '~/pages/Home';
 import Invoice from '~/pages/Invoice';
+import Login from '~/pages/Login';
+import Register from '~/pages/Register';
+import Order from '~/pages/Order';
+import User from '~/pages/User';
+import CallBack from '~/pages/Callback';
+import CallBackPaypal from '~/pages/CallbackPaypal';
+import CallbackMomo from '~/pages/CallbackMomo';
 
 const publicRoutes = [
-    { path: config.routes.home, component: Home },
-    { path: config.routes.shop, component: Shop },
-    { path: config.routes.about, component: About },
-    { path: config.routes.services, component: Services },
-    { path: config.routes.blog, component: Blog },
-    { path: config.routes.contact, component: Contact },
-    { path: config.routes.login, component: Login, layout: null },
-    { path: config.routes.signup, component: Signup, layout: null },
-    { path: config.routes.oneProduct, component: OneProduct },
+    { path: config.routes.blogDetail, component: BlogDetail },
+    { path: config.routes.blog, component: Blogs },
     { path: config.routes.cart, component: Cart },
+    { path: config.routes.category, component: Category },
+    { path: config.routes.detail, component: Detail },
+    { path: config.routes.home, component: Home },
     { path: config.routes.order, component: Order },
-    { path: config.routes.invoice, component: Invoice, layout: null },
+    { path: config.routes.user, component: User },
+    { path: config.routes.callback, component: CallBack, layout: null },
+    { path: config.routes.callbackPaypal, component: CallBackPaypal, layout: null },
+    { path: config.routes.callbackMomo, component: CallbackMomo, layout: null },
+    { path: config.routes.login, component: Login, layout: null },
+    { path: config.routes.register, component: Register, layout: null },
 ];
 
-const privateRoutes = [{ path: config.routes.checkOut, component: CheckOut }];
+const privateRoutes = [{ path: config.routes.invoice, component: Invoice, layout: null }];
 
 export { publicRoutes, privateRoutes };

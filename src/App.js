@@ -5,10 +5,12 @@ import { DefaultLayout } from '~/layouts';
 
 import { AuthProvider } from '~/AuthContext';
 import PrivateRoute from './components/PrivateRoute';
+import ScrollToTop from './components/ScrollToTop';
 function App() {
     return (
         <Router>
             <AuthProvider>
+                <ScrollToTop />
                 <div className="App">
                     <Routes>
                         {publicRoutes.map((route, index) => {

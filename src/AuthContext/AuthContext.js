@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         axios.defaults.withCredentials = true;
         axios
-            .get('http://localhost:5000/users/currentUser')
+            .get('http://localhost:9000/api/users/currentUser')
             .then((res) => {
                 if (res.status === 200 && res.data.Error) {
                     setAuth(false);
